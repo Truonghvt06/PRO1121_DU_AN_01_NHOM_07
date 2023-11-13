@@ -82,17 +82,18 @@
         android:layout_gravity="center"
         android:textSize="18dp"/>
 
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/botron"
-        android:textSize="30dp"
-        android:text="Đăng kí"
-        app:backgroundTint="@null"
-        android:id="@+id/btnDangKi"
-        android:textColor="@color/black" />
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="30dp"
+    android:background="@drawable/botron"
+    android:textSize="30dp"
+    android:text="Đăng kí"
+    app:backgroundTint="@null"
+    android:id="@+id/btnDangKi"
+    android:textColor="@color/black" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
