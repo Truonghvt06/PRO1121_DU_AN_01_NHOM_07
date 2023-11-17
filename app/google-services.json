@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "372916884260",
+    "project_id": "loginduan1-dc032",
+    "storage_bucket": "loginduan1-dc032.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372916884260:android:94ab4b7266b688272dd9b1",
+        "android_client_info": {
+          "package_name": "truonghvph35818.fpoly.pro1121_du_an_01_nhom_07"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAvRz45Ro_aD-LgNexM5r9B-RK1iuEiDE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
