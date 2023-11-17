@@ -78,7 +78,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:hint="Nhập lại mật khẩu"
-        android:id="@+id/edDKNhapLaiMK"
+        android:id="@+id/edNhapLaiMK"
         android:background="@drawable/botron"
         android:padding="12dp"
         android:layout_gravity="center"
