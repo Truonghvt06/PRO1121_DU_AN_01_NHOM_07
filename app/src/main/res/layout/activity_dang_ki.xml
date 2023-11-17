@@ -8,98 +8,96 @@
     tools:context=".taiKhoan.DangNhap">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="400dp"
+        android:layout_height="218dp"
         android:src="@drawable/logo" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:text="ĐĂNG KÝ"
-        android:layout_marginTop="-30dp"
-        android:layout_marginBottom="30dp"
+        android:text="ĐĂNG KÍ"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_gravity="center"/>
     <EditText
         android:layout_marginTop="10dp"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Họ tên"
-        android:id="@+id/edHoTen"
+        android:id="@+id/edDKHoTen"
         android:background="@drawable/botron"
-        android:padding="12dp"
+        android:padding="5dp"
         android:layout_gravity="center"
         android:textSize="18dp"/>
     <EditText
         android:layout_marginTop="10dp"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:id="@+id/edEmail"
+        android:id="@+id/edDKEmail"
         android:background="@drawable/botron"
-        android:padding="12dp"
+        android:padding="5dp"
         android:layout_gravity="center"
         android:textSize="18dp"/>
     <EditText
         android:layout_marginTop="10dp"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Số điện thoại"
-        android:id="@+id/edSdt"
+        android:id="@+id/edDKSdt"
         android:background="@drawable/botron"
-        android:padding="12dp"
+        android:padding="5dp"
         android:layout_gravity="center"
         android:textSize="18dp"/>
 
     <EditText
         android:layout_marginTop="10dp"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Tên tài khoản"
         android:id="@+id/edDKTaiKhoan"
         android:background="@drawable/botron"
-        android:padding="12dp"
+        android:padding="5dp"
         android:layout_gravity="center"
         android:textSize="18dp"/>
     <EditText
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Mật khẩu"
         android:id="@+id/edDKMatKhau"
         android:layout_marginTop="10dp"
         android:background="@drawable/botron"
-        android:padding="12dp"
+        android:padding="5dp"
         android:layout_gravity="center"
         android:textSize="18dp"/>
     <EditText
         android:layout_marginTop="10dp"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Nhập lại mật khẩu"
-        android:id="@+id/edNhapLaiMK"
+        android:id="@+id/edDKNhapLaiMK"
         android:background="@drawable/botron"
-        android:padding="12dp"
+        android:padding="5dp"
         android:layout_gravity="center"
         android:textSize="18dp"/>
 
+
     <Button
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:padding="6dp"
-        android:background="@drawable/botron"
-        android:textSize="30dp"
-        android:text="Đăng ký"
-        app:backgroundTint="@null"
-        android:id="@+id/btnDangKi"
-        android:textColor="@color/black" />
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="30dp"
+    android:background="@drawable/botron"
+    android:textSize="30dp"
+    android:text="Đăng kí"
+    app:backgroundTint="@null"
+    android:id="@+id/btnDangKi"
+    android:textColor="@color/black" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="80dp"
         android:layout_gravity="center"
         android:orientation="horizontal">
         <TextView
