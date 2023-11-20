@@ -28,7 +28,7 @@ public class ChaoActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(ChaoActivity.this, DangNhap.class);
+                Intent intent = new Intent(ChaoActivity.this, AdminActivity.class);
                 startActivity(intent);
                 finish();
             }

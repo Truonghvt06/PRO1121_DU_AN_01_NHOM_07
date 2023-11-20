@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/ql_nhanVien"
+        android:title="Quản lý nhân viên"
+        android:icon="@drawable/nhan_vien"/>
+    <item android:id="@+id/ql_nguoiDung"
+        android:title="Quản lý người dùng"
+        android:icon="@drawable/nguoi_dung"/>
+    <item android:id="@+id/ql_sanPham"
+        android:title="Quản lý sản phẩm"
+        android:icon="@drawable/san_pham"/>
+    <item android:id="@+id/ql_donHang"
+        android:title="Quản lý đơn hàng"
+        android:icon="@drawable/don_hang"/>
+    <item android:id="@+id/chat"
+        android:title="Chat"
+        android:icon="@drawable/chat"/>
+    <group android:checkableBehavior="single">
+        <item android:title="Thống kê">
+            <menu>
+                <item android:id="@+id/top10"
+                    android:title="Top 10 bán chạy"
+                    android:icon="@drawable/top10"/>
+                <item android:id="@+id/doanh_thu"
+                    android:title="Doanh thu"
+                    android:icon="@drawable/doanh_thu"/>
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="Người dùng">
+            <menu>
+                <item android:id="@+id/doi_mk"
+                    android:title="Đổi mật khẩu"
+                    android:icon="@drawable/top10"/>
+                <item android:id="@+id/dang_xuat"
+                    android:title="Đăng xuất"
+                    android:icon="@drawable/dang_xuat"/>
+            </menu>
+        </item>
+    </group>
+</menu>

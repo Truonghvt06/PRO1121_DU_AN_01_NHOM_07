@@ -13,10 +13,10 @@
         android:theme="@style/Theme.PRO1121_DU_AN_01_NHOM_07"
         tools:targetApi="31" >
         <activity
-            android:name=".MainActivity"
+            android:name=".AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".taiKhoan.Doimatkhau"
+            android:name=".NguoiDungActivity"
             android:exported="false" />
         <activity
             android:name=".taiKhoan.QuenMatKhau"

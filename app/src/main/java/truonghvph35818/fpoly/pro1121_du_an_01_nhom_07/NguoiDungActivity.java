@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -18,13 +17,13 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TaiKhoan;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TimKiem;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TrangChu;
 
-public class MainActivity extends AppCompatActivity {
+public class NguoiDungActivity extends AppCompatActivity {
     FrameLayout frameLayout;
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_nguoi_dung);
         frameLayout = findViewById(R.id.frame_layout);
         bottomNavigationView = findViewById(R.id.menu_nav);
 
