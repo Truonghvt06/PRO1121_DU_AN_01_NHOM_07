@@ -17,8 +17,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.MainActivity;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.TrangChu;
 
 public class DangNhap extends AppCompatActivity {
     private TextView tvDangKi,tvQuenMatKhau;
@@ -74,7 +74,7 @@ public class DangNhap extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(getApplicationContext(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(DangNhap.this, TrangChu.class);
+                            Intent i = new Intent(DangNhap.this, MainActivity.class);
                             startActivity(i);
                         }
                         else {

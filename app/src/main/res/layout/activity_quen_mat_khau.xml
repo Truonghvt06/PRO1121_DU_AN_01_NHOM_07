@@ -23,32 +23,13 @@
         android:layout_marginTop="40dp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Tên tài khoản"
-        android:id="@+id/edQMKTaiKhoan"
+        android:hint="Nhập email"
+        android:id="@+id/edQMKEmail"
         android:background="@drawable/botron"
         android:padding="5dp"
         android:layout_gravity="center"
         android:textSize="18dp"/>
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Mật khẩu mới"
-        android:id="@+id/edQMKMatKhauMoi"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/botron"
-        android:padding="5dp"
-        android:layout_gravity="center"
-        android:textSize="18dp"/>
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Nhập lại mật khẩu"
-        android:id="@+id/edQMKNhapLaiMK"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/botron"
-        android:padding="5dp"
-        android:layout_gravity="center"
-        android:textSize="18dp"/>
+
 
     <Button
         android:layout_width="wrap_content"
@@ -58,8 +39,8 @@
         android:background="@drawable/botron"
         app:backgroundTint="@null"
         android:textSize="30dp"
-        android:text="Đổi mật khẩu"
-        android:id="@+id/btnDoiMatKhau"
+        android:text="Lấy lại mật khẩu"
+        android:id="@+id/btnLayLaiMK"
         android:textColor="@color/black" />
 
 

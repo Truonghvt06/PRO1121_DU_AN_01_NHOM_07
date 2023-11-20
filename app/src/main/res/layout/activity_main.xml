@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:background="#F1F0F0"
+    tools:context=".TrangChu">
 
-    <androidx.appcompat.widget.Toolbar
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/menu_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:background="@color/white"
-        />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcdanhsach"
-        android:layout_width="match_parent"
-        android:layout_height="616dp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-2dp"
+        app:itemBackground="@color/white"
+        app:menu="@menu/menu_bottom" />
 
 
-
-
-
-
-</LinearLayout>
+</RelativeLayout>
