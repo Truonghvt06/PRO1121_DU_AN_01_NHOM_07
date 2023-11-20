@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     android:background="#F1F0F0"
     android:orientation="vertical"
-    tools:context=".TrangChu">
+    tools:context=".MainActivity">
 
 
     <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"/>

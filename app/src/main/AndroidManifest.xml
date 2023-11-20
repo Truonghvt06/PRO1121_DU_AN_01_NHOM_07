@@ -19,9 +19,6 @@
             android:name=".taiKhoan.Doimatkhau"
             android:exported="false" />
         <activity
-            android:name=".TrangChu"
-            android:exported="false" />
-        <activity
             android:name=".taiKhoan.QuenMatKhau"
             android:exported="false" />
         <activity
