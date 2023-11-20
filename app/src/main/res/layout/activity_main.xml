@@ -16,7 +16,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="-2dp"
         app:itemBackground="@color/white"
-        app:menu="@menu/menu_bottom" />
+        app:menu="@menu/menu_bottom"
+        app:itemIconTint="@color/black"
+        app:labelVisibilityMode="labeled"
+        />
 
 
 </RelativeLayout>
