@@ -30,6 +30,9 @@
     <group android:checkableBehavior="single">
         <item android:title="Người dùng">
             <menu>
+                <item android:id="@+id/thong_tin_tk"
+                    android:title="Thêm tài khoản"
+                    android:icon="@drawable/tai_khoan"/>
                 <item android:id="@+id/doi_mk"
                     android:title="Đổi mật khẩu"
                     android:icon="@drawable/top10"/>

@@ -26,6 +26,7 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLDonHang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLNguoiDung;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLNhanVien;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLSanPham;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_ThonTinTK;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_Top10;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.taiKhoan.DangNhap;
 
@@ -70,40 +71,59 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
+                String title = "";
                 if (item.getItemId() == R.id.ql_nhanVien){
                     fragment = new Frag_QLNhanVien();
+                    title = "Quản lý nhân viên";
                 }else if(item.getItemId() == R.id.ql_nguoiDung){
                     fragment = new Frag_QLNguoiDung();
+                    title = "Quản lý người dùng";
                 }else if(item.getItemId() == R.id.ql_sanPham){
                     fragment = new Frag_QLSanPham();
+                    title = "Quản lý sản phẩm";
                 }else if(item.getItemId() == R.id.ql_donHang){
                     fragment = new Frag_QLDonHang();
+                    title = "Quản lý đơn hàng";
                 }else if(item.getItemId() == R.id.chat){
                     fragment = new Frag_Chat();
+                    title = "Chat";
                 }else if(item.getItemId() == R.id.top10){
                     fragment = new Frag_Top10();
+                    title = "Top 10 bán chạy";
                 }else if(item.getItemId() == R.id.doanh_thu){
                     fragment = new Frag_DoanhThu();
+                    title = "Doanh thu";
+                }else if(item.getItemId() == R.id.doi_mk){
+                    fragment = new Frag_ThonTinTK();
+                    title = "Thêm tài khoản";
                 }else if(item.getItemId() == R.id.doi_mk){
                     fragment = new Frag_DoiMatKhau();
-                }else if(item.getItemId() == R.id.dang_xuat){
-                    AlertDialog.Builder  builder = new AlertDialog.Builder(AdminActivity.this);
-                    builder.setIcon(R.drawable.canh_bao);
-                    builder.setTitle("Thng báo!");
-                    builder.setMessage("Bạn có chắc muốn đăng xuất?");
-                    builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(AdminActivity.this, DangNhap.class));
+                    title = "Đổi mật khẩu";
+                }else if(item.getItemId() == R.id.dang_xuat) {
+                    fragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout);
 
-                        }
-                    });
-                    builder.setNegativeButton("Hủy", null);
-                    builder.show();
+
+
+                    if (fragment != null) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AdminActivity.this);
+                        builder.setIcon(R.drawable.canh_bao);
+                        builder.setTitle("Thng báo!");
+                        builder.setMessage("Bạn có chắc muốn đăng xuất?");
+                        builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(AdminActivity.this, DangNhap.class));
+
+                            }
+                        });
+                        builder.setNegativeButton("Hủy", null);
+                        builder.show();
+                    }
                 }
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, fragment)
                         .commit();
+                getSupportActionBar().setTitle(title);
                 drawerLayout.close();
 
                 return true;
