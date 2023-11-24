@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="200dp"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp"
+    android:backgroundTint="#D9D9D9"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="200dp"
+        android:padding="10dp"
+        android:background="@drawable/botron"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/anh_sp"
+            android:scaleType="centerCrop"
+            android:id="@+id/imv_anh_sp_trangchu"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên sản phẩm"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:id="@+id/tv_tensp_trangchu"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giá sản phẩm"
+            android:textColor="#FF0000"
+            android:id="@+id/tv_giasp_trangchu"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

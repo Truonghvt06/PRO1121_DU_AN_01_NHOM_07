@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/botron"
+    android:orientation="horizontal">
+
+    <CheckBox
+        android:id="@+id/checkbox_giohang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/img_anh_sp_giohang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boanh_sp"
+            android:src="@drawable/anh_sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Giày Nike Air Force 1 Low Cream Black Swoosh"
+               android:textStyle="bold"
+               android:id="@+id/txt_tensp_giohang"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="900000"
+                android:textColor="#C30B0B"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+        android:layout_width="25dp"
+        android:layout_height="26dp"
+        android:backgroundTint="#AAAAAA"
+      />
+
+    <Button
+        android:layout_width="25dp"
+        android:layout_height="26dp"
+
+        android:backgroundTint="#AAAAAA" />
+</LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
