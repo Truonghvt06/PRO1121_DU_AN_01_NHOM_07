@@ -4,12 +4,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:gravity="center_vertical"
     android:padding="20dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:src="@drawable/logo"/>
     <ImageView
         android:id="@+id/img_themAnhNV"
         android:layout_width="wrap_content"
@@ -23,14 +20,7 @@
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"/>
-    <EditText
-        android:id="@+id/ed_maNV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/botron"
-        android:padding="10dp"
-        android:layout_marginTop="20dp"
-        android:hint="Mã nhân viên"/>
+
     <EditText
         android:id="@+id/ed_hoTen"
         android:layout_width="match_parent"
@@ -39,6 +29,14 @@
         android:padding="10dp"
         android:layout_marginTop="10dp"
         android:hint="Họ tên"/>
+    <EditText
+        android:id="@+id/ed_gioiTinh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/botron"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:hint="Giới tính"/>
     <EditText
         android:id="@+id/ed_namSinh"
         android:layout_width="match_parent"
@@ -54,6 +52,22 @@
         android:background="@drawable/botron"
         android:padding="10dp"
         android:hint="Số điện thoại"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/ed_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/botron"
+        android:padding="10dp"
+        android:hint="Email"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/ed_matKhau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/botron"
+        android:padding="10dp"
+        android:hint="Mật khẩu"
         android:layout_marginTop="10dp"/>
 
     <LinearLayout

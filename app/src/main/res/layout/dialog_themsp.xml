@@ -5,77 +5,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="25dp"
+    android:gravity="center_vertical"
     android:background="#F1F0F0">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:src="@drawable/logo"/>
-    <ImageView
-        android:id="@+id/img_themAnhSP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/them_anh"
-        android:layout_gravity="center_horizontal"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tải ảnh lên"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"/>
-    <EditText
-        android:id="@+id/ed_tenSP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/botron"
-        android:padding="10dp"
-        android:layout_marginTop="20dp"
-        android:hint="Tên sản phẩm"/>
-    <EditText
-        android:id="@+id/ed_gia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/botron"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"
-        android:hint="Giá"/>
-    <EditText
-        android:id="@+id/ed_moTa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/botron"
-        android:padding="10dp"
-        android:hint="Mô tả"
-        android:layout_marginTop="10dp"/>
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:src="@drawable/logo"/>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_huy_themsp"
-            android:layout_width="170dp"
+
+        <ImageView
+            android:id="@+id/img_themAnhSP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/them_anh"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tải ảnh lên"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"/>
+        <EditText
+            android:id="@+id/ed_tenSP"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/botron"
-            app:backgroundTint="@null"
-            android:text="Hủy"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginRight="20dp"
-            android:textColor="#FF1100"/>
-        <Button
-            android:id="@+id/btn_luu_themsp"
-            android:layout_width="170dp"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="Tên sản phẩm"/>
+        <EditText
+            android:id="@+id/ed_theLoai"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/botron"
-            app:backgroundTint="@null"
-            android:text="Lưu"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
-    </LinearLayout>
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="Thể loại"/>
+        <EditText
+            android:id="@+id/ed_hienThi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botron"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="Hiển thị"/>
+        <EditText
+            android:id="@+id/ed_kichCo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botron"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="Cỡ 1, Cỡ 2,..."/>
+        <EditText
+            android:id="@+id/ed_gia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botron"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="Giá"/>
+        <EditText
+            android:id="@+id/ed_soLuong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botron"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="Số lượng"/>
+        <EditText
+            android:id="@+id/ed_moTa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botron"
+            android:padding="10dp"
+            android:hint="Mô tả"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_huy_themsp"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/botron"
+                app:backgroundTint="@null"
+                android:text="Hủy"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginRight="20dp"
+                android:textColor="#FF1100"/>
+            <Button
+                android:id="@+id/btn_luu_themsp"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/botron"
+                app:backgroundTint="@null"
+                android:text="Lưu"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
 </LinearLayout>

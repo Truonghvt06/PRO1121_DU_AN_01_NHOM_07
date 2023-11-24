@@ -36,7 +36,7 @@ public class DangKi extends AppCompatActivity {
         edDKHoTen = findViewById(R.id.edDKHoTen);
         edDKEmail = findViewById(R.id.edDKEmail);
         edDKSdt = findViewById(R.id.edDKSdt);
-        edDKTaiKhoan = findViewById(R.id.edDKTaiKhoan);
+//        edDKTaiKhoan = findViewById(R.id.edDKTaiKhoan);
         edDKMatKhau = findViewById(R.id.edDKMatKhau);
         edDKNhapLaiMK = findViewById(R.id.edDKNhapLaiMK);
         tvDangNhap = findViewById(R.id.tvDangNhap);
@@ -73,7 +73,7 @@ public class DangKi extends AppCompatActivity {
         email = edDKEmail.getText().toString();
         mk = edDKMatKhau.getText().toString();
         String  checkMK = edDKNhapLaiMK.getText().toString();
-        if(edDKHoTen.getText().toString().isEmpty() || edDKTaiKhoan.getText().toString().isEmpty() || edDKSdt.getText().toString().isEmpty() ){
+        if(edDKHoTen.getText().toString().isEmpty() || edDKSdt.getText().toString().isEmpty() ){
             Toast.makeText(getApplicationContext(),"Vui lòng không bỏ trống!!",Toast.LENGTH_SHORT).show();
             return;
         }
