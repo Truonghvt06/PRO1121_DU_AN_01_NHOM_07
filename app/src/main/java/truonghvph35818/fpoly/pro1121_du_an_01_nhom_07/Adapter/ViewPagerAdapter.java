@@ -4,9 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_Nam;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_Nu;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TreEm;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_Giay;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_Dep;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
     public ViewPagerAdapter(@NonNull Fragment fragment) {
@@ -18,18 +17,16 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position){
             case 0:
-                return new Frag_Nam();
+                return new Frag_Giay();
             case 1:
-                return new Frag_Nu();
-            case 2:
-                return new Frag_TreEm();
+                return new Frag_Dep();
             default:
-                return new Frag_Nam();
+                return new Frag_Giay();
         }
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 2;
     }
 }

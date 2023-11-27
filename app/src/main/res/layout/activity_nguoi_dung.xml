@@ -8,15 +8,8 @@
     android:orientation="vertical"
     tools:context=".NguoiDungActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-<androidx.viewpager.widget.ViewPager
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:id="@+id/view_pager"/>
+
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
