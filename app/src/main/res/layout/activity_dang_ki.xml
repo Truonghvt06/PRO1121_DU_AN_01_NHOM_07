@@ -32,16 +32,7 @@
         android:padding="12dp"
         android:layout_gravity="center"
         android:textSize="18dp"/>
-    <EditText
-        android:layout_marginTop="10dp"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:id="@+id/edDKEmail"
-        android:background="@drawable/botron"
-        android:padding="12dp"
-        android:layout_gravity="center"
-        android:textSize="18dp"/>
+
     <EditText
         android:layout_marginTop="10dp"
         android:layout_width="350dp"
@@ -57,8 +48,8 @@
         android:layout_marginTop="10dp"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:hint="Tên tài khoản"
-        android:id="@+id/edDKTaiKhoan"
+        android:hint="Email"
+        android:id="@+id/edDKEmail"
         android:background="@drawable/botron"
         android:padding="12dp"
         android:layout_gravity="center"

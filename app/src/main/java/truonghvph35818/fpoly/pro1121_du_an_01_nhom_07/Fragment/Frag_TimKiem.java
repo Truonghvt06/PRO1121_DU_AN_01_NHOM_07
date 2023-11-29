@@ -39,14 +39,13 @@ public class Frag_TimKiem extends Fragment {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 switch (position){
                     case 0:
-                        tab.setText("Nam");
+                        tab.setText("Giay");
                         break;
                     case 1:
-                        tab.setText("Nữ");
+                        tab.setText("Dép");
                         break;
-                    case 2:
-                        tab.setText("Trẻ em");
-                        break;
+
+
                 }
             }
         }).attach();

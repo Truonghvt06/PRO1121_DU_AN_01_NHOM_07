@@ -11,9 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,25 +33,22 @@ import java.util.List;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.UserAdapter;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.User;
+
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
+
 
 public class Frag_QLNguoiDung extends Fragment {
     List<User> list ;
-//    ImageView img_themAnhNV;
-//    EditText ed_hoTen, ed_gioiTinh, ed_namSinh, ed_email, ed_sdt, ed_matKhau;
-//    Button btn_Luu, btn_Huy;
     RecyclerView recyclerView;
-//    FloatingActionButton button;
     UserAdapter userAdapter;
     String id;
     User user = new User();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth firebaseAuth;
-    String email,matkhau,hoten,sdt,namsinh,gioitinh;
-    Dialog dialog;
     public Frag_QLNguoiDung() {
         // Required empty public constructor
     }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,6 +56,7 @@ public class Frag_QLNguoiDung extends Fragment {
 
         recyclerView = view.findViewById(R.id.re_nguoiDung);
         firebaseAuth = FirebaseAuth.getInstance();
+        loatData();
 
         return view;
     }
@@ -118,3 +118,9 @@ public class Frag_QLNguoiDung extends Fragment {
         });
     }
 }
+
+
+
+
+
+

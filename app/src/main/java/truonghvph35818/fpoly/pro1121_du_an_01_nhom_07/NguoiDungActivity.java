@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,13 +13,20 @@ import android.widget.FrameLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.bannerADapter;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_GioHang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TaiKhoan;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TimKiem;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TrangChu;
 
 public class NguoiDungActivity extends AppCompatActivity {
+
     FrameLayout frameLayout;
+
+
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,4 +61,6 @@ public class NguoiDungActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
