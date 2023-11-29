@@ -11,9 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,7 +33,9 @@ import java.util.List;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.UserAdapter;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.User;
+
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
+
 
 public class Frag_QLNguoiDung extends Fragment {
     List<User> list ;
@@ -50,6 +54,7 @@ public class Frag_QLNguoiDung extends Fragment {
     public Frag_QLNguoiDung() {
         // Required empty public constructor
     }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -118,3 +123,9 @@ public class Frag_QLNguoiDung extends Fragment {
         });
     }
 }
+
+
+
+
+
+
