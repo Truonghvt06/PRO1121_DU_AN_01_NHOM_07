@@ -44,12 +44,13 @@
         </LinearLayout>
 
     </LinearLayout>
-    <androidx.viewpager.widget.ViewPager
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:id="@+id/view_pager"/>
+        android:id="@+id/rcy_banner"/>
+
 <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/Rcv_giohang"
+    android:id="@+id/Rcv_trangchu"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_weight="1"/>

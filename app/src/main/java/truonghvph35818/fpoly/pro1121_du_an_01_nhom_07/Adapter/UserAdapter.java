@@ -67,7 +67,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setIcon(R.drawable.warning);
+                builder.setIcon(R.drawable.canh_bao);
                 builder.setTitle("Cảnh báo !");
                 builder.setMessage("Bạn có chắc chắn muốn xóa dữ liệu của nhân viên " + user.getHoTen() + " không ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -102,7 +102,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setIcon(R.drawable.warning);
+                builder.setIcon(R.drawable.canh_bao);
                 builder.setTitle("Cánh bảo !");
                 builder.setMessage("Bạn có muốn dừng hoạt động nhân viên " + user.getHoTen() + " không ?");
                 builder.setPositiveButton("Tắt trạng thái", new DialogInterface.OnClickListener() {
