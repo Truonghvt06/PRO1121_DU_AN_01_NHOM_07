@@ -9,24 +9,26 @@ public class SanPhamDTO {
     private String tenSP;
     private Long gia;
     private Long soLuong;
-    private String maTheLoai;
-    private String maHienThi;
-    private List<String> kichCo;
+    private String maHang;
+    private Long time;
     private String moTa;
+    private List<String> kichCo;
+    private  String maTheLoai;
 
     public SanPhamDTO() {
     }
 
-    public SanPhamDTO(String maSp, String anh, String tenSP, Long gia, Long soLuong, String maTheLoai, String maHienThi, List<String> kichCo, String moTa) {
+    public SanPhamDTO(String maSp, String anh, String tenSP, Long gia, Long soLuong, String maHang, Long time, String moTa, List<String> kichCo, String maTheLoai) {
         this.maSp = maSp;
         this.anh = anh;
         this.tenSP = tenSP;
         this.gia = gia;
         this.soLuong = soLuong;
-        this.maTheLoai = maTheLoai;
-        this.maHienThi = maHienThi;
-        this.kichCo = kichCo;
+        this.maHang = maHang;
+        this.time = time;
         this.moTa = moTa;
+        this.kichCo = kichCo;
+        this.maTheLoai = maTheLoai;
     }
 
     //Xử lý dữ liệu với Firebase
@@ -37,17 +39,14 @@ public class SanPhamDTO {
         map.put("tenSP", tenSP);
         map.put("gia", gia);
         map.put("soLuong", soLuong);
-        map.put("maTheLoai", maTheLoai);
-        map.put("maHienThi", maHienThi);
-        map.put("kichCo", kichCo);
+        map.put("maHang", maHang);
+        map.put("time", time);
         map.put("moTa", moTa);
+        map.put("kichCo", kichCo);
+        map.put("maTheLoai", maTheLoai);
 
         return  map;
     }
-
-
-
-
 
     public String getMaSp() {
         return maSp;
@@ -89,20 +88,28 @@ public class SanPhamDTO {
         this.soLuong = soLuong;
     }
 
-    public String getMaTheLoai() {
-        return maTheLoai;
+    public String getMaHang() {
+        return maHang;
     }
 
-    public void setMaTheLoai(String maTheLoai) {
-        this.maTheLoai = maTheLoai;
+    public void setMaHang(String maHang) {
+        this.maHang = maHang;
     }
 
-    public String getMaHienThi() {
-        return maHienThi;
+    public Long getTime() {
+        return time;
     }
 
-    public void setMaHienThi(String maHienThi) {
-        this.maHienThi = maHienThi;
+    public void setTime(Long time) {
+        this.time = time;
+    }
+
+    public String getMoTa() {
+        return moTa;
+    }
+
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
     }
 
     public List<String> getKichCo() {
@@ -113,11 +120,11 @@ public class SanPhamDTO {
         this.kichCo = kichCo;
     }
 
-    public String getMoTa() {
-        return moTa;
+    public String getMaTheLoai() {
+        return maTheLoai;
     }
 
-    public void setMoTa(String moTa) {
-        this.moTa = moTa;
+    public void setMaTheLoai(String maTheLoai) {
+        this.maTheLoai = maTheLoai;
     }
 }

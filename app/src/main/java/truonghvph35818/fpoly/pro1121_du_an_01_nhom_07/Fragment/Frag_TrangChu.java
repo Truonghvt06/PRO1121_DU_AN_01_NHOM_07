@@ -43,9 +43,9 @@ public class Frag_TrangChu extends Fragment {
         rcy_list=view.findViewById(R.id.Rcv_trangchu);
         imageView =view.findViewById(R.id.img_timKiem);
         editText =view.findViewById(R.id.ed_timKiem);
-bannerADapter =new bannerADapter(getanh(),getContext());
-rcy_banner.setAdapter(bannerADapter);
-rcy_banner.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
+        bannerADapter =new bannerADapter(getanh(),getContext());
+        rcy_banner.setAdapter(bannerADapter);
+        rcy_banner.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
 
     }
 

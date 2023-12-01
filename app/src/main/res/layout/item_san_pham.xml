@@ -13,6 +13,7 @@
         android:padding="7dp"
         >
         <ImageView
+            android:id="@+id/img_anh_sp"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_weight="1"
@@ -27,27 +28,7 @@
             android:layout_gravity="center_vertical"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="5dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:text="Mã SP: "
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:id="@+id/tv_ma_sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:text="001"
-                    />
-            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,6 +79,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
+                    android:text="Hãng: "
+                    />
+                <TextView
+                    android:id="@+id/tv_hien_thi_sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="001"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
                     android:text="Giá: "
                     />
                 <TextView
@@ -107,6 +108,26 @@
                     android:textSize="15sp"
                     android:text="001"
                     android:textColor="#FF0000"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="Số lượng: "
+                    />
+                <TextView
+                    android:id="@+id/tv_soLuong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="001"
                     />
             </LinearLayout>
         </LinearLayout>

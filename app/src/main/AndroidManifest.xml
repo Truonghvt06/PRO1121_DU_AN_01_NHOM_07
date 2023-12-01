@@ -16,10 +16,10 @@
             android:name=".ChiTietSPActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminActivity"
+            android:name=".NguoiDungActivity"
             android:exported="false" />
         <activity
-            android:name=".NguoiDungActivity"
+            android:name=".ChaoActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +37,7 @@
             android:name=".taiKhoan.DangNhap"
             android:exported="false" />
         <activity
-            android:name=".ChaoActivity"
+            android:name=".AdminActivity"
             android:exported="false" >
 
         </activity>
