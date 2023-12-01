@@ -36,22 +36,19 @@
             android:padding="10dp"
             android:layout_marginTop="20dp"
             android:hint="Tên sản phẩm"/>
+
         <EditText
-            android:id="@+id/ed_theLoai"
+            android:id="@+id/ed_thuonghieu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/botron"
             android:padding="10dp"
             android:layout_marginTop="10dp"
-            android:hint="Thể loại"/>
-        <EditText
-            android:id="@+id/ed_hienThi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/botron"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:hint="Hiển thị"/>
+            android:focusable="false"
+            android:inputType="none"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:hint="Thương hiệu"/>
         <EditText
             android:id="@+id/ed_kichCo"
             android:layout_width="match_parent"
@@ -68,14 +65,26 @@
             android:padding="10dp"
             android:layout_marginTop="10dp"
             android:hint="Giá"/>
-        <EditText
-            android:id="@+id/ed_soLuong"
+
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/botron"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:hint="Số lượng"/>
+            android:orientation="horizontal"
+            android:gravity="center"
+                >
+                <RadioButton
+                    android:id="@+id/giay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                        android:text="Giầy "/>
+                <RadioButton
+                    android:id="@+id/dep"
+                    android:layout_marginLeft="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dép "/>
+
+        </RadioGroup>
         <EditText
             android:id="@+id/ed_moTa"
             android:layout_width="match_parent"

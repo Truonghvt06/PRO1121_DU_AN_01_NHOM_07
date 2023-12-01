@@ -158,7 +158,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
             tv_Email = itemView.findViewById(R.id.tv_emailNV);
             tv_TrangThai = itemView.findViewById(R.id.tv_trangThai);
             img_delete = itemView.findViewById(R.id.delete_nv);
-            img_anh = itemView.findViewById(R.id.img_anh);
+            img_anh = itemView.findViewById(R.id.img_anh_nv);
         }
     }
 

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,8 +17,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.AdminActivity;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.User;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.NguoiDungActivity;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 
@@ -61,7 +67,6 @@ public class DangNhap extends AppCompatActivity {
                 String email,mk;
                 email = edEmail.getText().toString();
                 mk = edMatKhau.getText().toString();
-
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(getApplicationContext(),"Vui lòng nhập tài khoản!!",Toast.LENGTH_SHORT).show();
                     return;
@@ -74,9 +79,32 @@ public class DangNhap extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(DangNhap.this, AdminActivity.class);
-                            startActivity(i);
+                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+                            db.collection("User").whereEqualTo("email",email).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if(task.isComplete()){
+                                        User user= new User();
+                                        for (QueryDocumentSnapshot c :task.getResult()){
+                                            user=c.toObject(User.class);
+                                            Log.e("TAG", "onComplete: 8 "+user.getChucVu() );
+                                        }
+                                        if (user.getChucVu() == 2){
+                                            Toast.makeText(getApplicationContext(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
+                                            Intent i = new Intent(DangNhap.this, NguoiDungActivity.class);
+                                            startActivity(i);
+                                        }else {
+                                            Toast.makeText(getApplicationContext(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
+                                            Intent i = new Intent(DangNhap.this, AdminActivity.class);
+                                            startActivity(i);
+                                            Log.e("TAG", "onComplete: "+user.getEmail() );
+                                        }
+
+
+                                    }
+                                }
+                            });
+
                         }
                         else {
                             Toast.makeText(getApplicationContext(),"Đăng nhập không thành công",Toast.LENGTH_SHORT).show();

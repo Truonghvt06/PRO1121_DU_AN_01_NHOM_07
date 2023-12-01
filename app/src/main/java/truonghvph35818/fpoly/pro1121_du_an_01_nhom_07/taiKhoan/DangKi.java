@@ -17,7 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.User;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 
 public class DangKi extends AppCompatActivity {
@@ -25,7 +27,7 @@ public class DangKi extends AppCompatActivity {
     private EditText edDKHoTen,edDKEmail,edDKSdt,edDKTaiKhoan,edDKMatKhau,edDKNhapLaiMK;
     private Button btnDangKi;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-
+    FirebaseUser user;
     String email,mk;
 
 
@@ -94,17 +96,35 @@ public class DangKi extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-
-                    Toast.makeText(getApplicationContext(),"Tạo thành công!!",Toast.LENGTH_SHORT).show();
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    user = firebaseAuth.getCurrentUser();
                     updateUI(user);
-                    Intent intent = new Intent(DangKi.this, DangNhap.class);
-                    startActivity(intent);
+                    Taouser();
                 }else {
                     Toast.makeText(getApplicationContext(),"Tạo không thành công!!",Toast.LENGTH_SHORT).show();
                     updateUI(null);
                 }
             }
         });
+    }
+
+    private void Taouser() {
+        User user1=new User();
+        user1.setMaUser(user.getUid());
+        user1.setHoTen(edDKHoTen.getText().toString());
+        user1.setEmail(edDKEmail.getText().toString());
+        user1.setSDT(edDKSdt.getText().toString());
+        user1.setChucVu(2);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("User").document(user1.getMaUser()).set(user1).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isComplete()){
+                    Toast.makeText(getApplicationContext(),"Tạo thành công!!",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DangKi.this, DangNhap.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
     }
 }

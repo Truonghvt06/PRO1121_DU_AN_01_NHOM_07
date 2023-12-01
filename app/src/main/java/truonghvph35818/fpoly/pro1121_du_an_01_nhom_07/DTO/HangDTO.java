@@ -11,11 +11,17 @@ public class HangDTO {
     public HangDTO() {
     }
 
-    public HangDTO(String maHang, String tenHang, Long time, List<SanPhamDTO> sanPham) {
+    public HangDTO(String maHang, String tenHang, List<SanPhamDTO> sanPham) {
+        this.maHang = maHang;
+        this.tenHang = tenHang;
+
+        this.sanPham = sanPham;
+    }
+
+    public HangDTO(String maHang, String tenHang, Long time) {
         this.maHang = maHang;
         this.tenHang = tenHang;
         this.time = time;
-        this.sanPham = sanPham;
     }
 
     public String getMaHang() {

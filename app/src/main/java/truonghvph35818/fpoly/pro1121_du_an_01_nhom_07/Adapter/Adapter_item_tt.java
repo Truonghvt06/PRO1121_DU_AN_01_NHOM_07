@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.show_sanpham;
 
 public class Adapter_item_tt extends RecyclerView.Adapter<Adapter_item_tt.ViewHolder>  {
     Context context;
@@ -43,13 +45,19 @@ public class Adapter_item_tt extends RecyclerView.Adapter<Adapter_item_tt.ViewHo
                 error(R.drawable.baseline_crop_original_24).into(holder.anhSp);
         holder.TenSp.setText(list.get(position).getTenSP());
         holder.Gia.setText("Giá: " + list.get(position).getGia());
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, show_sanpham.class);
+                (context).startActivity(intent);
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

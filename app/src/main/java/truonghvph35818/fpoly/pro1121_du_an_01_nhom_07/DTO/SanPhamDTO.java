@@ -5,47 +5,31 @@ import java.util.List;
 
 public class SanPhamDTO {
     private String maSp;
+    boolean giaydep;
     private String anh;
     private String tenSP;
     private Long gia;
-    private Long soLuong;
+
     private String maHang;
     private Long time;
     private String moTa;
-    private List<String> kichCo;
-    private  String maTheLoai;
+    private long kichCo;
+    private  String thuonghieu;
 
     public SanPhamDTO() {
     }
 
-    public SanPhamDTO(String maSp, String anh, String tenSP, Long gia, Long soLuong, String maHang, Long time, String moTa, List<String> kichCo, String maTheLoai) {
+    public SanPhamDTO(String maSp, boolean giaydep, String anh, String tenSP, Long gia, String maHang, Long time, String moTa, long kichCo, String thuonghieu) {
         this.maSp = maSp;
+        this.giaydep = giaydep;
         this.anh = anh;
         this.tenSP = tenSP;
         this.gia = gia;
-        this.soLuong = soLuong;
         this.maHang = maHang;
         this.time = time;
         this.moTa = moTa;
         this.kichCo = kichCo;
-        this.maTheLoai = maTheLoai;
-    }
-
-    //Xử lý dữ liệu với Firebase
-    public HashMap<String, Object> hashMap(){
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("maSp", maSp);
-        map.put("anh", anh);
-        map.put("tenSP", tenSP);
-        map.put("gia", gia);
-        map.put("soLuong", soLuong);
-        map.put("maHang", maHang);
-        map.put("time", time);
-        map.put("moTa", moTa);
-        map.put("kichCo", kichCo);
-        map.put("maTheLoai", maTheLoai);
-
-        return  map;
+        this.thuonghieu = thuonghieu;
     }
 
     public String getMaSp() {
@@ -54,6 +38,14 @@ public class SanPhamDTO {
 
     public void setMaSp(String maSp) {
         this.maSp = maSp;
+    }
+
+    public boolean isGiaydep() {
+        return giaydep;
+    }
+
+    public void setGiaydep(boolean giaydep) {
+        this.giaydep = giaydep;
     }
 
     public String getAnh() {
@@ -80,14 +72,6 @@ public class SanPhamDTO {
         this.gia = gia;
     }
 
-    public Long getSoLuong() {
-        return soLuong;
-    }
-
-    public void setSoLuong(Long soLuong) {
-        this.soLuong = soLuong;
-    }
-
     public String getMaHang() {
         return maHang;
     }
@@ -112,19 +96,19 @@ public class SanPhamDTO {
         this.moTa = moTa;
     }
 
-    public List<String> getKichCo() {
+    public long getKichCo() {
         return kichCo;
     }
 
-    public void setKichCo(List<String> kichCo) {
+    public void setKichCo(long kichCo) {
         this.kichCo = kichCo;
     }
 
-    public String getMaTheLoai() {
-        return maTheLoai;
+    public String getThuonghieu() {
+        return thuonghieu;
     }
 
-    public void setMaTheLoai(String maTheLoai) {
-        this.maTheLoai = maTheLoai;
+    public void setThuonghieu(String thuonghieu) {
+        this.thuonghieu = thuonghieu;
     }
 }

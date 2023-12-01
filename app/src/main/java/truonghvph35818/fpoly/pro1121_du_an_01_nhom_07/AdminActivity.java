@@ -1,5 +1,9 @@
 package truonghvph35818.fpoly.pro1121_du_an_01_nhom_07;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -10,14 +14,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_Chat;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_DoanhThu;
@@ -32,6 +42,7 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.taiKhoan.DangNhap;
 
 public class AdminActivity extends AppCompatActivity {
     Toolbar toolbar;
+    Frag_QLSanPham Frag_QLSanPham=new Frag_QLSanPham();
     NavigationView navView;
 //    FrameLayout frameLayout;
     DrawerLayout drawerLayout;
@@ -79,7 +90,7 @@ public class AdminActivity extends AppCompatActivity {
                     fragment = new Frag_QLNguoiDung();
                     title = "Quản lý người dùng";
                 }else if(item.getItemId() == R.id.ql_sanPham){
-                    fragment = new Frag_QLSanPham();
+                    fragment =Frag_QLSanPham ;
                     title = "Quản lý sản phẩm";
                 }else if(item.getItemId() == R.id.ql_donHang){
                     fragment = new Frag_QLDonHang();
@@ -101,6 +112,7 @@ public class AdminActivity extends AppCompatActivity {
                     title = "Đổi mật khẩu";
                 }else if(item.getItemId() == R.id.dang_xuat) {
                     fragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                    FirebaseAuth.getInstance().signOut();
 
 
 
@@ -147,6 +159,62 @@ public class AdminActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         }else {
             super.onBackPressed();
+        }
+    }
+    ActivityResultLauncher<Intent> launcher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult o) {
+                    if (o.getResultCode() == RESULT_OK) {
+                        Intent intent = o.getData();
+                        if (intent == null) {
+                            return;
+                        }
+                      //để lấy ảnh
+                        Frag_QLSanPham.setUri(intent.getData());
+
+
+                    }
+
+                }
+            });
+    public void layAnh() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        launcher.launch(intent);
+    }
+
+    public void yeucauquyen(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            layAnh();
+            return;
+        }
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
+            String[] quyen = new String[]{android.Manifest.permission.READ_MEDIA_IMAGES};
+            requestPermissions(quyen, CODE_QUYEN);
+            return;
+        }
+        if (context.checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            // xử lý sau
+            layAnh();
+        } else {
+            String[] quyen = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE};
+            requestPermissions(quyen, CODE_QUYEN);
+        }
+    }
+
+    private static final int CODE_QUYEN = 1;
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CODE_QUYEN) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                layAnh();
+            } else {
+                Toast.makeText(this, "Bạn cần cấp quyền để sử dụng tính năng này", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
