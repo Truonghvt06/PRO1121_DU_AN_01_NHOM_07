@@ -1,6 +1,7 @@
 package truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,17 @@ public class Frag_QLSanPham extends Fragment {
     List<SanPhamDTO> list;
     FirebaseFirestore db ;
     SanPhamAdapter sanPhamAdapter;
+    Context context;
+
+
+
+
+    public Frag_QLSanPham(int contentLayoutId, List<SanPhamDTO> list, Context context) {
+        super(contentLayoutId);
+        this.list = list;
+        this.context = context;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,7 +63,7 @@ public class Frag_QLSanPham extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         list = new ArrayList<>();
-        sanPhamAdapter = new SanPhamAdapter(getContext(), list);
+        sanPhamAdapter = new SanPhamAdapter(getContext(),list);
         recyclerView.setAdapter(sanPhamAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

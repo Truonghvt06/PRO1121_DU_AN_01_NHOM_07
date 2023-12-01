@@ -29,7 +29,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
     int quyen = 0;
     FirebaseFirestore firestore;
 
-    public SanPhamAdapter(Context context, List<SanPhamDTO> list, Frag_QLSanPham sanPham, int i) {
+    public SanPhamAdapter(Context context, List<SanPhamDTO> list) {
         this.context = context;
         this.list = list;
         this.sanPham = sanPham;
