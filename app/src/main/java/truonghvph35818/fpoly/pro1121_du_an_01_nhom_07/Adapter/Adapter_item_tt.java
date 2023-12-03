@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.ChiTietSPActivity;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.show_sanpham;
@@ -48,7 +49,8 @@ public class Adapter_item_tt extends RecyclerView.Adapter<Adapter_item_tt.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, show_sanpham.class);
+                Intent intent = new Intent(context, ChiTietSPActivity.class);
+                intent.putExtra("Sanpham",list.get(position).getMaSp());
                 (context).startActivity(intent);
             }
         });

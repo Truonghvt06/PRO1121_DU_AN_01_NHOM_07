@@ -51,6 +51,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/ll_hotrokhachang"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@drawable/bovuong"
@@ -75,6 +76,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_thongtintk"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@drawable/bovuong"
@@ -100,6 +102,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_lichsudonhang"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@drawable/bovuong"
@@ -124,6 +127,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_Dangxuat"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@drawable/bovuong"

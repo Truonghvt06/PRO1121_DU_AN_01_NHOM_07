@@ -16,7 +16,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="#FF9800"
+                android:textColor="#0C0C0C"
                 android:textStyle="bold"
                 android:id="@+id/tv_tenhang"
                 android:textSize="30dp"/>
@@ -29,7 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textColor="#FF9800"
+                    android:textColor="#070707"
                     android:textStyle="normal"
                     android:textSize="16dp"
                     android:id="@+id/ll_xemthem_moi"
@@ -37,7 +37,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#FF9800"/>
+                    android:background="#151515"/>
             </LinearLayout>
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView

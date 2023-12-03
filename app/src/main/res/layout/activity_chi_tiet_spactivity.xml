@@ -53,7 +53,8 @@
                 android:id="@+id/imv_anh_sp_lon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="centerInside"
+
                 android:src="@drawable/anh_sp" />
         </androidx.cardview.widget.CardView>
 
@@ -97,7 +98,7 @@
                     android:text="Kích cỡ: "
                     android:textSize="20dp" />
 
-                <androidx.recyclerview.widget.RecyclerView
+                <TextView
                     android:id="@+id/rc_kichCo"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
