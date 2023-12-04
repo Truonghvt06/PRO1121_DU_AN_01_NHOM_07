@@ -160,7 +160,7 @@ public class Frag_QLNhanVien extends Fragment {
                 user.setSDT(sdt);
                 user.setChucVu(2);
                 user.setTrangThai(1);
-                db.collection("user").document(user.getMaUser()).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                db.collection("User").document(user.getMaUser()).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isComplete()) {
@@ -186,7 +186,7 @@ public class Frag_QLNhanVien extends Fragment {
 
 
     private void nghe() {
-        db.collection("user").whereEqualTo("chucVu", 2)
+        db.collection("User").whereEqualTo("chucVu", 2)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

@@ -25,6 +25,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.AdminActivity;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.User;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.NguoiDungActivity;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.NhanVienActivity;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 
 public class DangNhap extends AppCompatActivity {
@@ -75,7 +76,8 @@ public class DangNhap extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Vui lòng nhập mật khẩu!!",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                firebaseAuth.signInWithEmailAndPassword(email,mk).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                firebaseAuth.signInWithEmailAndPassword(email,mk)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
@@ -89,15 +91,21 @@ public class DangNhap extends AppCompatActivity {
                                             user=c.toObject(User.class);
                                             Log.e("TAG", "onComplete: 8 "+user.getChucVu() );
                                         }
-                                        if (user.getChucVu() == 2){
+                                        if (user.getChucVu() == 3){
                                             Toast.makeText(getApplicationContext(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
                                             Intent i = new Intent(DangNhap.this, NguoiDungActivity.class);
                                             startActivity(i);
-                                        }else {
+                                        }else if(user.getChucVu() == 1){
                                             Toast.makeText(getApplicationContext(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
                                             Intent i = new Intent(DangNhap.this, AdminActivity.class);
                                             startActivity(i);
                                             Log.e("TAG", "onComplete: "+user.getEmail() );
+                                        }else if(user.getChucVu() == 2){
+                                            Toast.makeText(DangNhap.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(DangNhap.this, NhanVienActivity.class);
+                                            startActivity(intent);
+                                        }else {
+                                            Toast.makeText(DangNhap.this, "Lỗi", Toast.LENGTH_SHORT).show();
                                         }
 
 

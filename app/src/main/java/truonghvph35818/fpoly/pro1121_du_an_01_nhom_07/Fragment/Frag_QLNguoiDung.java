@@ -79,7 +79,7 @@ public class Frag_QLNguoiDung extends Fragment {
 
 
     private void nghe() {
-        db.collection("user").whereEqualTo("chucVu", 3).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("User").whereEqualTo("chucVu", 3).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error != null) {

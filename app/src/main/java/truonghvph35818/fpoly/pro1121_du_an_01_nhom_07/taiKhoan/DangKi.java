@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,11 +26,11 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 
 public class DangKi extends AppCompatActivity {
     private TextView tvDangNhap;
-    private EditText edDKHoTen,edDKEmail,edDKSdt,edDKTaiKhoan,edDKMatKhau,edDKNhapLaiMK;
+    private EditText edDKHoTen,edDKEmail,edDKSdt,edDKMatKhau,edDKNhapLaiMK;
     private Button btnDangKi;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user;
-    String email,mk;
+    private FirebaseFirestore firestore;
 
 
     @Override
@@ -43,10 +45,10 @@ public class DangKi extends AppCompatActivity {
         edDKNhapLaiMK = findViewById(R.id.edDKNhapLaiMK);
         tvDangNhap = findViewById(R.id.tvDangNhap);
         btnDangKi = findViewById(R.id.btnDangKi);
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if(currentUser != null){
-            reload();
-        }
+//        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+//        if(currentUser != null){
+//            reload();
+//        }
 
 
 
@@ -72,57 +74,84 @@ public class DangKi extends AppCompatActivity {
 
     }
     private void dangKi(){
-        email = edDKEmail.getText().toString();
-        mk = edDKMatKhau.getText().toString();
-        String  checkMK = edDKNhapLaiMK.getText().toString();
-        if(edDKHoTen.getText().toString().isEmpty() || edDKSdt.getText().toString().isEmpty() ){
+        String hoTen = edDKHoTen.getText().toString();
+        String sdt = edDKSdt.getText().toString();
+        String email = edDKEmail.getText().toString();
+        String mk = edDKMatKhau.getText().toString();
+//        String  checkMK = edDKNhapLaiMK.getText().toString();
+        if(email.isEmpty() || hoTen.isEmpty() || sdt.isEmpty() || mk.isEmpty()){
             Toast.makeText(getApplicationContext(),"Vui lòng không bỏ trống!!",Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(getApplicationContext(),"Vui lòng nhập email!!",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(mk)){
-            Toast.makeText(getApplicationContext(),"Vui lòng nhập mật khẩu!!",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(!checkMK.equals(mk)){
+//        if(TextUtils.isEmpty(email)){
+//            Toast.makeText(getApplicationContext(),"Vui lòng nhập email!!",Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if(TextUtils.isEmpty(mk)){
+//            Toast.makeText(getApplicationContext(),"Vui lòng nhập mật khẩu!!",Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+        if(!mk.equals(edDKNhapLaiMK.getText().toString())){
             Toast.makeText(getApplicationContext(),"Mật khẩu không trùng khớp!!",Toast.LENGTH_SHORT).show();
             return;
         }
+        if (mk.length() <= 6 ){{
+            Toast.makeText(this, "Mật khẩu phải dài hơn 6 kí tự", Toast.LENGTH_SHORT).show();
+        }}
         firebaseAuth.createUserWithEmailAndPassword(email,mk).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    user = firebaseAuth.getCurrentUser();
-                    updateUI(user);
-                    Taouser();
+                    Intent intent = new Intent(DangKi.this, DangNhap.class);
+                    startActivity(intent);
+                    finishAffinity();
+                    TaoUser();
+//                    user = firebaseAuth.getCurrentUser();
+//                    updateUI(user);
+//                    Taouser();
                 }else {
-                    Toast.makeText(getApplicationContext(),"Tạo không thành công!!",Toast.LENGTH_SHORT).show();
-                    updateUI(null);
+                    Toast.makeText(getApplicationContext(),"Đăng ký không thành công!!",Toast.LENGTH_SHORT).show();
+//                    updateUI(null);
                 }
             }
         });
     }
 
-    private void Taouser() {
+    private void TaoUser() {
+        user = firebaseAuth.getCurrentUser();
+        firestore = FirebaseFirestore.getInstance();
+        if (user == null){
+            return;
+        }
         User user1=new User();
         user1.setMaUser(user.getUid());
         user1.setHoTen(edDKHoTen.getText().toString());
         user1.setEmail(edDKEmail.getText().toString());
         user1.setSDT(edDKSdt.getText().toString());
-        user1.setChucVu(2);
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("User").document(user1.getMaUser()).set(user1).addOnCompleteListener(new OnCompleteListener<Void>() {
+        user1.setChucVu(3);
+        user1.setTrangThai(1);
+
+//        firestore.collection("User").document(user1.getMaUser()).set(user1).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if (task.isComplete()){
+//                    Toast.makeText(getApplicationContext(),"Tạo thành công!!",Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(DangKi.this, DangNhap.class);
+//                    startActivity(intent);
+//                }
+//            }
+//        });
+        firestore.collection("User").document(user1.getMaUser()).set(user1).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isComplete()){
-                    Toast.makeText(getApplicationContext(),"Tạo thành công!!",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(DangKi.this, DangNhap.class);
-                    startActivity(intent);
-                }
+            public void onSuccess(Void unused) {
+                Toast.makeText(DangKi.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(DangKi.this, "Lỗi", Toast.LENGTH_SHORT).show();
             }
         });
 

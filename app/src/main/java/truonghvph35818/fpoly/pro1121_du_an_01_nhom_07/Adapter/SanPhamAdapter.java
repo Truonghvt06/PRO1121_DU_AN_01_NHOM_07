@@ -1,5 +1,6 @@
 package truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -45,7 +46,7 @@ this.fragQlSanPham=fragQlSanPham;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         if (list.get(position).getAnh()==null){
             return;
         }
@@ -61,7 +62,7 @@ this.fragQlSanPham=fragQlSanPham;
             public void onClick(View view) {
                 AlertDialog.Builder builder =new AlertDialog.Builder(context);
                 builder.setTitle("");
-                builder.setMessage("dit cu may co xoa ko :)");
+                builder.setMessage("Bạn có chắc muốn xóa?");
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

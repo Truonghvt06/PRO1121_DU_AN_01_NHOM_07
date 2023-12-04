@@ -39,13 +39,14 @@ public class ChaoActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                if (user == null) {
+//                if (user == null) {
                     Intent intent = new Intent(ChaoActivity.this, DangNhap.class);
                     startActivity(intent);
                     finish();
-                } else {
-                    dangnhap();
-                }
+//                }
+//                else {
+//                    dangnhap();
+//                }
             }
         }, 3500);
     }
@@ -60,15 +61,22 @@ public class ChaoActivity extends AppCompatActivity {
                         user = c.toObject(User.class);
                         Log.e("TAG", "onComplete: 8 " + user.getChucVu());
                     }
-                    if (user.getChucVu() == 2) {
+                    if (user.getChucVu() == 3) {
                         Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(ChaoActivity.this, NguoiDungActivity.class);
                         startActivity(i);
-                    } else {
+                        finish();
+                    }else if(user.getChucVu() == 1){
+                        Toast.makeText(getApplicationContext(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(ChaoActivity.this, AdminActivity.class);
+                        startActivity(i);
+                        finish();
+                        Log.e("TAG", "onComplete: "+user.getEmail() );
+                    }else if(user.getChucVu() == 2){
                         Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(ChaoActivity.this, AdminActivity.class);
                         startActivity(i);
-                        Log.e("TAG", "onComplete: " + user.getEmail());
+                        finish();
                     }
 
 

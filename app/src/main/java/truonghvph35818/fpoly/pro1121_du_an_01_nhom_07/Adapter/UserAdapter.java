@@ -69,11 +69,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setIcon(R.drawable.canh_bao);
                 builder.setTitle("Cảnh báo !");
-                builder.setMessage("Bạn có chắc chắn muốn xóa dữ liệu của nhân viên " + user.getHoTen() + " không ?");
+                builder.setMessage("Bạn có chắc chắn muốn xóa dữ liệu của tài khoản " + user.getHoTen() + " không ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        db.collection("user").document(list.get(position).getMaUser()).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        db.collection("User").document(list.get(position).getMaUser()).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isComplete()){
@@ -131,7 +131,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
     }
     private void changeTT(int i, User user) {
         user.setTrangThai(i);
-        db.collection("user").document(user.getMaUser()).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+        db.collection("User").document(user.getMaUser()).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isComplete()){
