@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -13,11 +12,7 @@ import android.widget.FrameLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.bannerADapter;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_CXN_DonHang;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_DonHang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_GioHang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TaiKhoan;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TimKiem;
@@ -53,7 +48,7 @@ public class NguoiDungActivity extends AppCompatActivity {
                 }else if (item.getItemId() == R.id.gio_hang) {
                     fragment = new Frag_GioHang();
                 }else  if (item.getItemId() ==R.id.don_hang){
-                    fragment = new Frag_CXN_DonHang();
+                    fragment = new Frag_DonHang();
                 }else if (item.getItemId() == R.id.tai_khoan) {
                     fragment = new Frag_TaiKhoan();
                 }

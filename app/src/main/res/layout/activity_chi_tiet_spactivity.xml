@@ -53,7 +53,7 @@
                 android:id="@+id/imv_anh_sp_lon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerInside"
+                android:scaleType="centerCrop"
 
                 android:src="@drawable/anh_sp" />
         </androidx.cardview.widget.CardView>

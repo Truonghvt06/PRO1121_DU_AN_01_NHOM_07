@@ -39,14 +39,14 @@ public class ChaoActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-//                if (user == null) {
+                if (user == null) {
                     Intent intent = new Intent(ChaoActivity.this, DangNhap.class);
                     startActivity(intent);
                     finish();
-//                }
-//                else {
-//                    dangnhap();
-//                }
+                }
+                else {
+                    dangnhap();
+                }
             }
         }, 3500);
     }

@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 
-public class Frag_CXN_DonHang extends Fragment {
+public class Frag_DonHang extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frag_cxn_don_hang, container, false);
+        View view = inflater.inflate(R.layout.frag_don_hang, container, false);
 
         return view;
     }

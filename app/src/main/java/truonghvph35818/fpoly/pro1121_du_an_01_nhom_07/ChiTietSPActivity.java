@@ -71,6 +71,13 @@ public class ChiTietSPActivity extends AppCompatActivity {
         soluong = findViewById(R.id.edt_soluong_show);
         soluong.setText(so + "");
 
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         themgh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,6 +111,7 @@ public class ChiTietSPActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isComplete()) {
                     Log.e("TAG", "onComplete: " + task.getResult().toObject(SanPhamDTO.class).getGia());
+                    sanPhamDTO.setThuonghieu(task.getResult().toObject(SanPhamDTO.class).getThuonghieu());
                     sanPhamDTO.setAnh(task.getResult().toObject(SanPhamDTO.class).getAnh());
                     sanPhamDTO.setMaSp(task.getResult().toObject(SanPhamDTO.class).getMaSp());
                     sanPhamDTO.setGia(task.getResult().toObject(SanPhamDTO.class).getGia());
