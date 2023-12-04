@@ -35,7 +35,6 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 public class Frag_QLDonHang extends Fragment {
     RecyclerView recyclerView;
     QL_DonHangAdapter qlDonHangAdapter;
-
     List<SanPhamDTO> list_sp;
     List<DonHang> list_dh;
 

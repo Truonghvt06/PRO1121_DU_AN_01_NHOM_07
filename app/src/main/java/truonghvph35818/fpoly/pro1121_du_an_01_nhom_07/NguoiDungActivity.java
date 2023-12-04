@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.bannerADapter;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_CXN_DonHang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_GioHang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TaiKhoan;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_TimKiem;
@@ -51,6 +52,8 @@ public class NguoiDungActivity extends AppCompatActivity {
                     fragment = new Frag_TimKiem();
                 }else if (item.getItemId() == R.id.gio_hang) {
                     fragment = new Frag_GioHang();
+                }else  if (item.getItemId() ==R.id.don_hang){
+                    fragment = new Frag_CXN_DonHang();
                 }else if (item.getItemId() == R.id.tai_khoan) {
                     fragment = new Frag_TaiKhoan();
                 }

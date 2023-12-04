@@ -12,10 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.DonHang;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
 
 public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.ViewHolder> {
     Context context;
     List<DonHang> donHang;
+    List<SanPhamDTO> sanPhamDTO;
     @NonNull
     @Override
     public QL_DonHangAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

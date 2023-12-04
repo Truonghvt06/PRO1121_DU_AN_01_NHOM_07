@@ -9,6 +9,9 @@
     <item android:id="@+id/gio_hang"
         android:title="Giỏ hàng"
         android:icon="@drawable/gio_hang"/>
+    <item android:id="@+id/don_hang"
+        android:title="Đơn hàng"
+        android:icon="@drawable/don_hang"/>
     <item android:id="@+id/tai_khoan"
         android:title="Tài khoản"
         android:icon="@drawable/tai_khoan"/>
