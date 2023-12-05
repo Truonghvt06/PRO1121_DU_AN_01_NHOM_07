@@ -29,10 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_DoanhThu;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_DoiMatKhau;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLDonHang;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLNguoiDung;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLNhanVien;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLSanPham;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_ThonTinTK;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_Top10;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.taiKhoan.DangNhap;
 

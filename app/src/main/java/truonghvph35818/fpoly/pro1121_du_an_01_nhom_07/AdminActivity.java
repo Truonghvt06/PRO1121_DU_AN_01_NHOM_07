@@ -12,7 +12,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
 import android.content.Context;
@@ -21,25 +20,18 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.User;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_Chat;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_DoanhThu;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_DoiMatKhau;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLDonHang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLNguoiDung;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLNhanVien;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_QLSanPham;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_ThonTinTK;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_ThemTK;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment.Frag_Top10;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.taiKhoan.DangNhap;
 
@@ -105,7 +97,7 @@ public class AdminActivity extends AppCompatActivity {
                     fragment = new Frag_DoanhThu();
                     title = "Doanh thu";
                 }else if(item.getItemId() == R.id.thong_tin_tk){
-                    fragment = new Frag_ThonTinTK();
+                    fragment = new Frag_ThemTK();
                     title = "Thêm tài khoản";
                 }else if(item.getItemId() == R.id.doi_mk){
                     fragment = new Frag_DoiMatKhau();
