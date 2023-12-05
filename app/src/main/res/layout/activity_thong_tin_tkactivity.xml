@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F0F0"
+    tools:context=".ThongTinTKActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/img_back_tttk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thông tin tài khoản"
+            android:layout_marginLeft="75dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:background="#FFD6D6"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/img_anh_tttk"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/avatar_tk"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#F28989"
+        android:text="Chạm để thay đổi"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:gravity="center"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:padding="10dp"
+       android:background="@color/white"
+       >
+
+       <TextView
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:text="Tên"
+           android:textSize="17sp"
+           />
+       <TextView
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:text="Tên TK"
+           android:textSize="17sp"
+           android:layout_gravity="end"/>
+   </LinearLayout>
+
+
+
+</LinearLayout>
