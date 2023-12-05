@@ -27,8 +27,9 @@ import java.util.List;
 import java.util.UUID;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.Adapter_Kichco;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.GioHang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.giohang;
+
 
 public class ChiTietSPActivity extends AppCompatActivity {
 
@@ -62,7 +63,7 @@ public class ChiTietSPActivity extends AppCompatActivity {
         cong = findViewById(R.id.bnt_cong_soluong);
         tru = findViewById(R.id.bnt_tru_soluong);
         themgh = findViewById(R.id.btn_themgh);
-        mua = findViewById(R.id.btn_mua);
+//        mua = findViewById(R.id.btn_mua);
         anh = findViewById(R.id.imv_anh_sp_lon);
         back = findViewById(R.id.img_back_chi_tiet);
         tenSP = findViewById(R.id.tv_tensp_show);
@@ -136,7 +137,7 @@ public class ChiTietSPActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String maGio = UUID.randomUUID() + "";
         db.collection("gioHang").document(maGio).
-                set(new giohang(maGio, user.getUid(), sanPhamDTO.getMaSp(),kickco.getText().toString(), Long.parseLong(soluong.getText().toString() )))
+                set(new GioHang(maGio, user.getUid(), sanPhamDTO.getMaSp(),kickco.getText().toString(), Long.parseLong(soluong.getText().toString() )))
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
