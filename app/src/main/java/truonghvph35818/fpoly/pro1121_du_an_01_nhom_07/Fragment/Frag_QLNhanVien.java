@@ -55,7 +55,7 @@ public class Frag_QLNhanVien extends Fragment {
     String id;
     User user = new User();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    FirebaseAuth firebaseAuth;
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     String email,matkhau,hoten,sdt,namsinh,gioitinh;
     Dialog dialog;
     public Frag_QLNhanVien() {
@@ -69,7 +69,6 @@ public class Frag_QLNhanVien extends Fragment {
         button = view.findViewById(R.id.float_nhanVien);
         loadData();
 
-        firebaseAuth = FirebaseAuth.getInstance();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +157,8 @@ public class Frag_QLNhanVien extends Fragment {
                 user.setEmail(email);
                 user.setHoTen(hoten);
                 user.setSDT(sdt);
+                user.setNgaySinh(namsinh);
+                user.setGioiTinh(gioitinh);
                 user.setChucVu(2);
                 user.setTrangThai(1);
                 db.collection("User").document(user.getMaUser()).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {

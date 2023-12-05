@@ -20,10 +20,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.ThongTinLHActivity;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.ThongTinTKActivity;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.taiKhoan.DangNhap;
 
 public class Frag_TaiKhoan extends Fragment {
-    LinearLayout ll_hotrokh, ll_dangxuat, ll_thongtintk, ll_lichsudonhang;
+    LinearLayout ll_lienHe, ll_dangxuat, ll_thongtintk, ll_lichsudonhang;
     FirebaseFirestore db;
 
     User user;
@@ -34,6 +36,9 @@ public class Frag_TaiKhoan extends Fragment {
         View view = inflater.inflate(R.layout.frag_taikhoan, container, false);
         ll_dangxuat = view.findViewById(R.id.ll_Dangxuat);
         ll_thongtintk = view.findViewById(R.id.ll_thongtintk);
+        ll_lienHe = view.findViewById(R.id.ll_lienHe);
+
+
         ll_dangxuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,12 +48,20 @@ public class Frag_TaiKhoan extends Fragment {
         ll_thongtintk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
-                thongtintk();
+                startActivity(new Intent(getContext(), ThongTinTKActivity.class));
             }
         });
+
+        ll_lienHe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), ThongTinLHActivity.class));
+
+            }
+        });
+
+
+
         return view;
 
     }

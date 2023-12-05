@@ -4,36 +4,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       >
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_weight="3"
-           android:textStyle="bold"
-           android:text="Tên sản phẩm"
-           android:paddingLeft="40dp"
-           android:textSize="20sp"
-           android:paddingTop="10dp"
-           android:paddingBottom="10dp"
+<!--   <LinearLayout-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="wrap_content"-->
+<!--       android:orientation="horizontal"-->
+<!--       >-->
+<!--       <TextView-->
+<!--           android:layout_width="wrap_content"-->
+<!--           android:layout_height="wrap_content"-->
+<!--           android:layout_weight="3"-->
+<!--           android:textStyle="bold"-->
+<!--           android:text="Tên sản phẩm"-->
+<!--           android:paddingLeft="40dp"-->
+<!--           android:textSize="20sp"-->
+<!--           android:paddingTop="10dp"-->
+<!--           android:paddingBottom="10dp"-->
 
-           />
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_weight="1"
-           android:textStyle="bold"
-           android:text="Số lượng"
-           android:textSize="20sp"
-           android:padding="10dp"
-           />
-   </LinearLayout>
+<!--           />-->
+<!--       <TextView-->
+<!--           android:layout_width="wrap_content"-->
+<!--           android:layout_height="wrap_content"-->
+<!--           android:layout_weight="1"-->
+<!--           android:textStyle="bold"-->
+<!--           android:text="Số lượng"-->
+<!--           android:textSize="20sp"-->
+<!--           android:padding="10dp"-->
+<!--           />-->
+<!--   </LinearLayout>-->
 
-    <ListView
-        android:id="@+id/lv_top10"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/re_top10"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

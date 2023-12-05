@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,7 +31,7 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 
 public class DangNhap extends AppCompatActivity {
     private TextView tvDangKi,tvQuenMatKhau;
-    private EditText edEmail,edMatKhau;
+    private TextInputEditText edEmail,edMatKhau;
     private Button btnDangNhap;
     private FirebaseAuth firebaseAuth;
 

@@ -51,25 +51,27 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/ll_hotrokhachang"
+            android:id="@+id/ll_lienHe"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/bovuong"
             android:gravity="center"
+            android:padding="15dp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hỗ trợ khách hàng"
+                android:layout_weight="10"
+                android:text="Thông tin liên hệ"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/ibt_htkh"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
+                android:layout_weight="1"
                 android:background="@color/white"
                 android:src="@drawable/ic_outline_arrow_back_ios" />
 
@@ -78,14 +80,16 @@
         <LinearLayout
             android:id="@+id/ll_thongtintk"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/bovuong"
             android:gravity="center"
+            android:padding="15dp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="10"
                 android:text="Thông tin tài khoản"
                 android:layout_marginLeft="1dp"
                 android:textSize="20dp"
@@ -93,9 +97,9 @@
 
             <ImageButton
                 android:id="@+id/ibt_tttk"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
+                android:layout_weight="1"
                 android:background="@color/white"
                 android:src="@drawable/ic_outline_arrow_back_ios" />
 
@@ -104,23 +108,25 @@
         <LinearLayout
             android:id="@+id/ll_lichsudonhang"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/bovuong"
             android:gravity="center"
+            android:padding="15dp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="10"
                 android:text="Lịch sử đơn hàng"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/ibt_lusudonhang"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="160dp"
+                android:layout_weight="1"
                 android:background="@color/white"
                 android:src="@drawable/ic_outline_arrow_back_ios" />
 

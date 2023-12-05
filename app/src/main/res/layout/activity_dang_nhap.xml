@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".taiKhoan.DangNhap">
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:src="@drawable/logo"/>
     <TextView
         android:layout_width="wrap_content"
@@ -16,37 +17,51 @@
         android:textSize="30dp"
         android:text="ĐĂNG NHẬP"
         android:textStyle="bold"
+        android:layout_marginBottom="50dp"
         android:textColor="@color/black"
         android:layout_gravity="center"/>
 
-    <EditText
-        android:layout_marginTop="40dp"
-        android:layout_width="350dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập email"
-        android:id="@+id/edEmail"
-        android:background="@drawable/botron"
-        android:padding="13dp"
-        android:layout_gravity="center"
-        android:textSize="18dp"/>
-    <EditText
-        android:layout_width="350dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:hint="Nhập email"
+            android:id="@+id/edEmail"
+            android:background="@drawable/botron"
+            android:padding="13dp"
+            android:layout_gravity="center"
+            android:textSize="18dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập mật khẩu"
-        android:id="@+id/edMatKhau"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/botron"
-        android:padding="13dp"
-        android:layout_gravity="center"
-        android:inputType="textPassword"
-        android:textSize="18dp"/>
+        android:layout_marginTop="5dp"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            android:hint="Nhập mật khẩu"
+            android:id="@+id/edMatKhau"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/botron"
+            android:padding="13dp"
+            android:layout_gravity="center"
+            android:inputType="textPassword"
+            android:textSize="18dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnDangNhap"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/botron"
         android:padding="6dp"
         android:text="Đăng nhập"

@@ -62,7 +62,7 @@
         android:layout_height="1dp"
         android:background="#A6A3A3"/>
     <LinearLayout
-        android:id="@+id/linear_email"
+        android:id="@+id/linear_Email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
