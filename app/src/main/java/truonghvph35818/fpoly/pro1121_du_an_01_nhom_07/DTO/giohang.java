@@ -1,16 +1,16 @@
 package truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO;
 
-public class giohang {
+public class GioHang {
     private String maGio;
     private String maKhachHang;
     private String maSanPham;
     private String kichCo;
     private Long soLuong;
 
-    public giohang() {
+    public GioHang() {
     }
 
-    public giohang(String maGio, String maKhachHang, String maSanPham, String kichCo, Long soLuong) {
+    public GioHang(String maGio, String maKhachHang, String maSanPham, String kichCo, Long soLuong) {
         this.maGio = maGio;
         this.maKhachHang = maKhachHang;
         this.maSanPham = maSanPham;

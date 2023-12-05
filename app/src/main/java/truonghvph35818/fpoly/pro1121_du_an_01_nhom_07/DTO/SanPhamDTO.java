@@ -1,9 +1,10 @@
 package truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
-public class SanPhamDTO {
+public class SanPhamDTO implements Serializable {
     private String maSp;
     boolean giaydep;
     private String anh;
@@ -15,11 +16,12 @@ public class SanPhamDTO {
     private String moTa;
     private long kichCo;
     private  String thuonghieu;
+    private Long soLuong;
 
     public SanPhamDTO() {
     }
 
-    public SanPhamDTO(String maSp, boolean giaydep, String anh, String tenSP, Long gia, String maHang, Long time, String moTa, long kichCo, String thuonghieu) {
+    public SanPhamDTO(String maSp, boolean giaydep, String anh, String tenSP, Long gia, String maHang, Long time, String moTa, long kichCo, String thuonghieu, Long soLuong) {
         this.maSp = maSp;
         this.giaydep = giaydep;
         this.anh = anh;
@@ -30,6 +32,7 @@ public class SanPhamDTO {
         this.moTa = moTa;
         this.kichCo = kichCo;
         this.thuonghieu = thuonghieu;
+        this.soLuong = soLuong;
     }
 
     public String getMaSp() {
@@ -110,5 +113,13 @@ public class SanPhamDTO {
 
     public void setThuonghieu(String thuonghieu) {
         this.thuonghieu = thuonghieu;
+    }
+
+    public Long getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(Long soLuong) {
+        this.soLuong = soLuong;
     }
 }

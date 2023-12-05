@@ -9,9 +9,9 @@
     <item android:id="@+id/ql_sanPham"
         android:title="Quản lý sản phẩm"
         android:icon="@drawable/san_pham"/>
-    <item android:id="@+id/ql_donHang"
-        android:title="Quản lý đơn hàng"
-        android:icon="@drawable/don_hang"/>
+<!--    <item android:id="@+id/ql_donHang"-->
+<!--        android:title="Quản lý đơn hàng"-->
+<!--        android:icon="@drawable/don_hang"/>-->
 <!--    <item android:id="@+id/chat"-->
 <!--        android:title="Chat"-->
 <!--        android:icon="@drawable/chat"/>-->

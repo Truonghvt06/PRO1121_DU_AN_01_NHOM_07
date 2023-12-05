@@ -15,7 +15,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imgv_anhsp"
+            android:id="@+id/img_anhsp"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:background="@drawable/anh_sp" />
@@ -71,15 +71,18 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp">
-                <ImageButton
-                    android:id="@+id/ibtn_Huy"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"/>
-                <ImageButton
-                    android:id="@+id/ibtn_XacNhan"
+                <ImageView
+                    android:id="@+id/img_Huy"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="100dp"/>
+                    android:src="@drawable/delete_xacnhan"/>
+                <ImageView
+                    android:id="@+id/img_XacNhan"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="100dp"
+                    android:src="@drawable/xac_nhan"
+                    />
             </LinearLayout>
 
         </LinearLayout>

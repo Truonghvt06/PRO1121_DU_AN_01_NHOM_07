@@ -28,6 +28,7 @@ import java.util.List;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.QL_DonHangAdapter;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.DonHang;
 
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.GioHang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.User;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
@@ -35,8 +36,9 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 public class Frag_QLDonHang extends Fragment {
     RecyclerView recyclerView;
     QL_DonHangAdapter qlDonHangAdapter;
-    List<SanPhamDTO> list_sp;
-    List<DonHang> list_dh;
+    List<GioHang> list_Giohang;
+    List<SanPhamDTO> list_SanPham;
+    List<DonHang> list_DonHang;
 
     List<User> list_User;
     FirebaseFirestore db;
@@ -44,88 +46,89 @@ public class Frag_QLDonHang extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_ql_don_hang, container, false);
-//        loatData();
+        recyclerView = view.findViewById(R.id.re_ql_don_hang);
+        loatData();
         return view;
     }
-//    public void loatData() {
-//        list_User = new ArrayList<>();
-//        list_sp = new ArrayList<>();
-//        list_gioHang = new ArrayList<>();
-//        list_dh = new ArrayList<>();
-//        getAll();
-//        adapterQuanlyhoadon = new Adapter_quanlyhoadon(list_sp, list_User, list_dh, getContext());
-//        recyclerView.setAdapter(adapterQuanlyhoadon);
-//        LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-//        recyclerView.setLayoutManager(manager);
-//
-//    }
-//
-//
-//    public void getSp() {
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//        db.collection("sanPham").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                if (task.isComplete()) {
-//                    for (QueryDocumentSnapshot snapshot: task.getResult()){
-//                        list_sp.add(snapshot.toObject(SanPham.class));
-//                    }
-//                    adapterQuanlyhoadon.notifyDataSetChanged();
-//                }
-//            }
-//        });
-//    }
-//
-//    private void getAll() {
-//        db = FirebaseFirestore.getInstance();
-//        getSP();
-//        getKH();
-//        getHoaDon();
-//        getSp();
-//
-//    }
-//
-//    public void getHoaDon() {
-//
-//        db.collection("donHang").whereEqualTo("trangThai", 0).addSnapshotListener(new EventListener<QuerySnapshot>() {
-//            @Override
-//            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-//                if (error != null) {
-//                    Toast.makeText(getContext(), "Lỗi không có dữ liệu", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                if (value != null) {
-//                    for (DocumentChange dc : value.getDocumentChanges()) {
-//                        switch (dc.getType()) {
-//                            case ADDED:
-//                                dc.getDocument().toObject(DonHang.class);
-//                                list_dh.add(dc.getDocument().toObject(DonHang.class));
-//                                adapterQuanlyhoadon.notifyDataSetChanged();
-//                                break;
-//                            case MODIFIED:
-//                                DonHang dtoq = dc.getDocument().toObject(DonHang.class);
-//                                if (dc.getOldIndex() == dc.getNewIndex()) {
-//                                    list_dh.set(dc.getOldIndex(), dtoq);
-//                                } else {
-//                                    list_dh.remove(dc.getOldIndex());
-//                                    list_dh.add(dtoq);
-//                                }
-//                                adapterQuanlyhoadon.notifyDataSetChanged();
-//                                break;
-//                            case REMOVED:
-//                                dc.getDocument().toObject(DonHang.class);
-//                                list_dh.remove(dc.getOldIndex());
-//                                adapterQuanlyhoadon.notifyDataSetChanged();
-//                                break;
-//                        }
-//                    }
-//                }
-//            }
-//        });
-//    }
+    public void loatData() {
+        list_User = new ArrayList<>();
+        list_SanPham = new ArrayList<>();
+        list_Giohang = new ArrayList<>();
+        list_DonHang = new ArrayList<>();
+        getAll();
+        qlDonHangAdapter = new QL_DonHangAdapter(getContext(),  list_DonHang, list_SanPham, list_User);
+        recyclerView.setAdapter(qlDonHangAdapter);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(manager);
+
+    }
+
+
+    public void getSp() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("Sanpham").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isComplete()) {
+                    for (QueryDocumentSnapshot snapshot: task.getResult()){
+                        list_SanPham.add(snapshot.toObject(SanPhamDTO.class));
+                    }
+                    qlDonHangAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+    }
+
+    private void getAll() {
+        db = FirebaseFirestore.getInstance();
+        getSp();
+        getKH();
+        getHoaDon();
+        getSP();
+
+    }
+
+    public void getHoaDon() {
+
+        db.collection("DonHang").whereEqualTo("trangThai", 0).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Toast.makeText(getContext(), "Lỗi không có dữ liệu", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (value != null) {
+                    for (DocumentChange dc : value.getDocumentChanges()) {
+                        switch (dc.getType()) {
+                            case ADDED:
+                                dc.getDocument().toObject(DonHang.class);
+                                list_DonHang.add(dc.getDocument().toObject(DonHang.class));
+                                qlDonHangAdapter.notifyDataSetChanged();
+                                break;
+                            case MODIFIED:
+                                DonHang donHang = dc.getDocument().toObject(DonHang.class);
+                                if (dc.getOldIndex() == dc.getNewIndex()) {
+                                    list_DonHang.set(dc.getOldIndex(), donHang);
+                                } else {
+                                    list_DonHang.remove(dc.getOldIndex());
+                                    list_DonHang.add(donHang);
+                                }
+                                qlDonHangAdapter.notifyDataSetChanged();
+                                break;
+                            case REMOVED:
+                                dc.getDocument().toObject(DonHang.class);
+                                list_DonHang.remove(dc.getOldIndex());
+                                qlDonHangAdapter.notifyDataSetChanged();
+                                break;
+                        }
+                    }
+                }
+            }
+        });
+    }
 
     public void getKH() {
-        db.collection("user").whereEqualTo("chucVu", 3).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("User").whereEqualTo("chucVu", 3).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error != null) {
@@ -159,39 +162,39 @@ public class Frag_QLDonHang extends Fragment {
     }
 
 
-//    public void getSP() {
-//        db.collection("sanPham").orderBy("time").addSnapshotListener(new EventListener<QuerySnapshot>() {
-//            @Override
-//            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-//                if (error != null) {
-//                    Toast.makeText(getContext(), "Lỗi không có dữ liệu", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (value != null) {
-//                    for (DocumentChange dc : value.getDocumentChanges()) {
-//                        switch (dc.getType()) {
-//                            case ADDED:
-//                                dc.getDocument().toObject(SanPham.class);
-//                                list_sp.add(dc.getDocument().toObject(SanPham.class));
-//                                break;
-//                            case MODIFIED:
-//                                SanPham dtoq = dc.getDocument().toObject(SanPham.class);
-//                                if (dc.getOldIndex() == dc.getNewIndex()) {
-//                                    list_sp.set(dc.getOldIndex(), dtoq);
-//                                } else {
-//                                    list_sp.remove(dc.getOldIndex());
-//                                    list_sp.add(dtoq);
-//                                }
-//                                break;
-//                            case REMOVED:
-//                                dc.getDocument().toObject(SanPham.class);
-//                                list_sp.remove(dc.getOldIndex());
-//                                break;
-//                        }
-//                    }
-//                }
-//            }
-//        });
-//    }
+    public void getSP() {
+        db.collection("Sanpham").orderBy("time").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Toast.makeText(getContext(), "Lỗi không có dữ liệu", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (value != null) {
+                    for (DocumentChange dc : value.getDocumentChanges()) {
+                        switch (dc.getType()) {
+                            case ADDED:
+                                dc.getDocument().toObject(SanPhamDTO.class);
+                                list_SanPham.add(dc.getDocument().toObject(SanPhamDTO.class));
+                                break;
+                            case MODIFIED:
+                                SanPhamDTO sanPhamDTO = dc.getDocument().toObject(SanPhamDTO.class);
+                                if (dc.getOldIndex() == dc.getNewIndex()) {
+                                    list_SanPham.set(dc.getOldIndex(), sanPhamDTO);
+                                } else {
+                                    list_SanPham.remove(dc.getOldIndex());
+                                    list_SanPham.add(sanPhamDTO);
+                                }
+                                break;
+                            case REMOVED:
+                                dc.getDocument().toObject(SanPhamDTO.class);
+                                list_SanPham.remove(dc.getOldIndex());
+                                break;
+                        }
+                    }
+                }
+            }
+        });
+    }
 }
