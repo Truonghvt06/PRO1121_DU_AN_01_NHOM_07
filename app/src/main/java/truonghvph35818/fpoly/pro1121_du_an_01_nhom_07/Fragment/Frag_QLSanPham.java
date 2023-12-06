@@ -193,7 +193,7 @@ public class Frag_QLSanPham extends Fragment {
         luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                luudulieu(anh, tensp, thuonghieu, kichco, gia, giay, dep, mota, dialog);
+                luudulieu(anh, tensp, thuonghieu, kichco, gia, mota, dialog);
             }
         });
         anh.setOnClickListener(new View.OnClickListener() {
@@ -307,7 +307,7 @@ dsthuonghieu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
     }
 
 
-    private void luudulieu(ImageView anh, EditText tensp, EditText thuonghieu, EditText kichco, EditText gia, RadioButton giay, RadioButton dep, EditText mota, Dialog dialog) {
+    private void luudulieu(ImageView anh, EditText tensp, EditText thuonghieu, EditText kichco, EditText gia,  EditText mota, Dialog dialog) {
         if (tensp.getText().toString().isEmpty() ||
                 thuonghieu.toString().isEmpty() ||
                 kichco.toString().isEmpty() ||
@@ -326,7 +326,6 @@ dsthuonghieu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         sanPhamDTO.setGia(Long.parseLong(gia.getText().toString().trim()));
         sanPhamDTO.setThuonghieu(thuonghieu.getText().toString().trim());
         sanPhamDTO.setMoTa(mota.getText().toString().trim());
-        sanPhamDTO.setGiaydep(giay.isChecked());
         sanPhamDTO.setAnh(linkanh);
         db.collection("Sanpham").document(masp).set(sanPhamDTO).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

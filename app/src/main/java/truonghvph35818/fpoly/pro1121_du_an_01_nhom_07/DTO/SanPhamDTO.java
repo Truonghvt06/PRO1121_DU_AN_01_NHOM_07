@@ -6,7 +6,7 @@ import java.util.List;
 
 public class SanPhamDTO implements Serializable {
     private String maSp;
-    boolean giaydep;
+
     private String anh;
     private String tenSP;
     private Long gia;
@@ -21,9 +21,9 @@ public class SanPhamDTO implements Serializable {
     public SanPhamDTO() {
     }
 
-    public SanPhamDTO(String maSp, boolean giaydep, String anh, String tenSP, Long gia, String maHang, Long time, String moTa, long kichCo, String thuonghieu, Long soLuong) {
+    public SanPhamDTO(String maSp, String anh, String tenSP, Long gia, String maHang, Long time, String moTa, long kichCo, String thuonghieu, Long soLuong) {
         this.maSp = maSp;
-        this.giaydep = giaydep;
+
         this.anh = anh;
         this.tenSP = tenSP;
         this.gia = gia;
@@ -41,14 +41,6 @@ public class SanPhamDTO implements Serializable {
 
     public void setMaSp(String maSp) {
         this.maSp = maSp;
-    }
-
-    public boolean isGiaydep() {
-        return giaydep;
-    }
-
-    public void setGiaydep(boolean giaydep) {
-        this.giaydep = giaydep;
     }
 
     public String getAnh() {

@@ -87,13 +87,13 @@ public class ThongTinLHActivity extends AppCompatActivity {
     }
 
     private void openInstagram() {
-        String link = "https://motphimtw.net/";
+        String link = "https://www.instagram.com/luongthe348/";
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
         startActivity(intent);
     }
 
     private void openFacebookPage() {
-        String link = "https://www.youtube.com/";
+        String link = "https://www.facebook.com/profile.php?id=100081900742922";
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
         startActivity(intent);
     }

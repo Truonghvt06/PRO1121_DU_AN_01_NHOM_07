@@ -24,6 +24,9 @@ public class DonHang {
         this.ngayMua = ngayMua;
     }
 
+    public DonHang() {
+    }
+
     public String getMaDonHang() {
         return maDonHang;
     }
