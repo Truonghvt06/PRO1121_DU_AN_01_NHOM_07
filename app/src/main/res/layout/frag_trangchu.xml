@@ -16,33 +16,14 @@
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:src="@drawable/logo"/>
-
-        <LinearLayout
-            android:layout_marginTop="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/botron">
-
-            <EditText
-                android:id="@+id/ed_timKiem"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:hint="Tìm kiếm..."
-                android:textSize="13sp"
-                android:textColor="#8F8B8B"
-                android:background="@drawable/botrontrong"
-                android:layout_gravity="center_vertical"
-                android:paddingLeft="5dp" />
-            <ImageView
-                android:id="@+id/img_timKiem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/timkiem"/>
-
-        </LinearLayout>
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Trang chủ"
+    android:textStyle="bold"
+    android:textSize="30dp"
+    android:layout_gravity="center"
+    android:layout_marginLeft="65dp"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
