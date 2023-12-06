@@ -40,21 +40,10 @@
         android:background="#FEFEFE"
         android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/chb_tatca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tất cả" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="130dp"
             android:text="Tống tiền :" />
 
         <TextView

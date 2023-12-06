@@ -28,7 +28,7 @@ import java.util.List;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.QL_DonHangAdapter;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.DonHang;
 
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.GioHang;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.giohang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.User;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
@@ -36,7 +36,7 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 public class Frag_QLDonHang extends Fragment {
     RecyclerView recyclerView;
     QL_DonHangAdapter qlDonHangAdapter;
-    List<GioHang> list_Giohang;
+    List<giohang> list_Giohang;
     List<SanPhamDTO> list_SanPham;
     List<DonHang> list_DonHang;
 

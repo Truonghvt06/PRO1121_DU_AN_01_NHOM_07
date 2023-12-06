@@ -1,71 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/botron"
-    android:orientation="horizontal">
-
-    <CheckBox
-        android:id="@+id/checkbox_giohang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+    android:backgroundTint="#D9D9D9"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <ImageView
-            android:id="@+id/img_anh_sp_giohang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/boanh_sp"
-            android:src="@drawable/anh_sp" />
-
+        android:padding="10dp"
+        >
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Giày Nike Air Force 1 Low Cream Black Swoosh"
-               android:textStyle="bold"
-               android:id="@+id/txt_tensp_giohang"/>
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:background="@color/white"
+                android:id="@+id/imv_anh_sp_gioHang"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="900000"
-                android:textColor="#C30B0B"/>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-
-    <Button
-        android:layout_width="25dp"
-        android:layout_height="26dp"
-        android:backgroundTint="#AAAAAA"
-      />
-    <EditText
-        android:id="@+id/edt_soluong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        />
-
-    <Button
-        android:layout_width="25dp"
-        android:layout_height="26dp"
-
-        android:backgroundTint="#AAAAAA" />
-</LinearLayout>
-
+                android:text="Giá ok"
+                android:background="@color/white"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/tv_giasp_giohang"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity=""
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên sản phẩm"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
 
+                android:id="@+id/tv_tensp_gioHang"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên sản phẩm"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
+                android:id="@+id/tv_thuonghieu_gioHang"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Kích cỡ"
+                    android:id="@+id/tv_kichcosp_giohang"
+                    android:textColor="#050505"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Kích cỡ"
+                    android:id="@+id/tv_soluongsp_giohang"
+                    android:textColor="#050505"/>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mua ngay"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/tv_mua_giohang"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xóa"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/tv_xoa_giohang"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -11,7 +11,7 @@ public class DonHang {
     private Long giaDon;
     private String ngayMua ;
 
-    public DonHang() {
+    public DonHang(String maDon, String uid, List<Don> listDon, List<SanPhamDTO> list_sanPham, int trangThai, Object o, String ngayMua) {
     }
 
     public DonHang(String maDonHang, String maKhachHang, List<Don> listSP, Long time, int trangThai, Long giaDon, String ngayMua) {

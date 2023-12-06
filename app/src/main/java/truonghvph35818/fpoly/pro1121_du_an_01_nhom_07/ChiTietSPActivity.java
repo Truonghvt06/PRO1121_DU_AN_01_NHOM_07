@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,7 +25,7 @@ import java.util.List;
 import java.util.UUID;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.Adapter_Kichco;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.GioHang;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.giohang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
 
 
@@ -137,7 +135,7 @@ public class ChiTietSPActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String maGio = UUID.randomUUID() + "";
         db.collection("gioHang").document(maGio).
-                set(new GioHang(maGio, user.getUid(), sanPhamDTO.getMaSp(),kickco.getText().toString(), Long.parseLong(soluong.getText().toString() )))
+                set(new giohang(maGio, user.getUid(), sanPhamDTO.getMaSp(),kickco.getText().toString(), Long.parseLong(soluong.getText().toString() )))
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

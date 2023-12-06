@@ -5,51 +5,99 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager2.widget.ViewPager2;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.ViewPagerAdapter;
+import java.util.ArrayList;
+import java.util.List;
+
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.Adapter_timkiem;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.Adapter_trangchu;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.HangDTO;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 
 public class Frag_TimKiem extends Fragment {
     EditText ed_timKiem;
-    private TabLayout tabLayout;
-    private ViewPager2 pager2;
-    private ViewPagerAdapter adapter;
+
+    private RecyclerView recyclerView;
+    SearchView searchView;
+    List<SanPhamDTO> sanPhamDTOList;
+    FirebaseFirestore db;
+    Adapter_timkiem adapter_timkiem;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frag_timkiem, container, false);
+        return inflater.inflate(R.layout.frag_timkiem, container, false);
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        sanPhamDTOList =new ArrayList<>();
+        adapter_timkiem=new Adapter_timkiem(sanPhamDTOList,getContext());
+
 
         ed_timKiem = view.findViewById(R.id.ed_timKiem);
-        tabLayout = view.findViewById(R.id.tab_layout);
-        pager2 = view.findViewById(R.id.view_pager);
+        recyclerView =view.findViewById(R.id.rcy_timkiem);
+        recyclerView.setAdapter(adapter_timkiem);
 
-        adapter = new ViewPagerAdapter(this);
-        pager2.setAdapter(adapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        laydulieudb();
 
-        new TabLayoutMediator(tabLayout, pager2, new TabLayoutMediator.TabConfigurationStrategy() {
+    }
+
+    private void laydulieudb() {
+        db=FirebaseFirestore.getInstance();
+        db.collection("Sanpham").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                switch (position){
-                    case 0:
-                        tab.setText("Giay");
-                        break;
-                    case 1:
-                        tab.setText("Dép");
-                        break;
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                db = FirebaseFirestore.getInstance();
+                for (DocumentSnapshot dc : value.getDocuments()) {
+                    AddListSP(dc.getString("maHang"), dc.getString("tenHang"));
+                }
 
+            }
+        });
+    }
 
+    private void AddListSP(String maHang, String tenHang) {
+        db.collection("Sanpham").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    return;
+                }
+                if (value == null) {
+                    return;
+                }
+                for (DocumentChange dc : value.getDocumentChanges()) {
+                    if (maHang.equals(dc.getDocument().get("maHang").toString())) {
+                        //lấy được sản phẩm
+                        sanPhamDTOList.add(dc.getDocument().toObject(SanPhamDTO.class));
+                        adapter_timkiem.notifyDataSetChanged();
+                    }
+                    switch (dc.getType()) {
+                        case MODIFIED:
+//                            manHinhKhachHang.getSupportFragmentManager().beginTransaction().replace(R.id.fcv_KhachHang, new Frag_cuahang()).commit();
+                            return;
+                    }
                 }
             }
-        }).attach();
-
-        return view;
+        });
     }
 }
