@@ -42,6 +42,8 @@ public class Frag_QLDonHang extends Fragment {
 
     List<User> list_User;
     FirebaseFirestore db;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -90,7 +92,7 @@ public class Frag_QLDonHang extends Fragment {
 
     public void getHoaDon() {
 
-        db.collection("DonHang").whereEqualTo("trangThai", 0).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("donHang").whereEqualTo("trangThai", 0).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error != null) {
@@ -122,6 +124,7 @@ public class Frag_QLDonHang extends Fragment {
                                 break;
                         }
                     }
+
                 }
             }
         });

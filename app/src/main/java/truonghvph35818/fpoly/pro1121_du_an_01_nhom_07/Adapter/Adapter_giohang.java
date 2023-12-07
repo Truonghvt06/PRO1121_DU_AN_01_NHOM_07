@@ -40,7 +40,10 @@ public class Adapter_giohang extends RecyclerView.Adapter<Adapter_giohang.ViewHo
     Frag_GioHang gioHang;
     FirebaseFirestore db;
     FirebaseUser User ;
+    TextView tongGia;
+     Adapter_giohang adapter_giohang;
 
+    List<Don> listMaSP;
     public Adapter_giohang(List<giohang> list_gio, List<SanPhamDTO> list_sanPham, List<HangDTO> list_hang, Context context, Frag_GioHang gioHang) {
         this.list_gio = list_gio;
         this.list_sanPham = list_sanPham;
@@ -110,26 +113,72 @@ public class Adapter_giohang extends RecyclerView.Adapter<Adapter_giohang.ViewHo
     }
 
     private void them(int position) {
-        List<Don> listDon = new ArrayList<>();
-        listDon.add(new Don(list_gio.get(position).getMaSanPham(),list_gio.get(position).getSoLuong()));
+//        List<Don> listDon = new ArrayList<>();
+//        listDon.add(new Don(list_gio.get(position).getMaSanPham(),list_gio.get(position).getSoLuong()));
+//        String maDon = UUID.randomUUID().toString();
+//        Calendar lich = Calendar.getInstance();
+//        int ngay = lich.get(Calendar.DAY_OF_MONTH);
+//        int thang =lich.get(Calendar.MONTH)+1;
+//        int nam = lich.get(Calendar.YEAR);
+//        String ngayMua = nam+"/"+thang+"/"+ngay;
+//        db.collection("donHang").document(maDon).set(new DonHang(maDon,User.getUid(),listDon,list_sanPham,0,TongGiaSP(position),ngayMua))
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isComplete()){
+//                            Toast.makeText(context, "Đơn hàng đang chờ nhân viên xác nhận", Toast.LENGTH_SHORT).show();
+//                            xoa(list_gio.get(position).getMaGio());
+//                        }else {
+//                            Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+        List<String> listMaGio = getListMa();
+        if (listMaGio.size()<=0) {
+            Toast.makeText(context, "Vui lòng thêm sản phẩm vào giỏ", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String maDon = UUID.randomUUID().toString();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Calendar lich = Calendar.getInstance();
         int ngay = lich.get(Calendar.DAY_OF_MONTH);
-        int thang =lich.get(Calendar.MONTH)+1;
+        int thang = lich.get(Calendar.MONTH)+1;
         int nam = lich.get(Calendar.YEAR);
         String ngayMua = nam+"/"+thang+"/"+ngay;
-        db.collection("donHang").document(maDon).set(new DonHang(maDon,User.getUid(),listDon,list_sanPham,0,TongGiaSP(position),ngayMua))
+        db.collection("donHang").document(maDon).set(new DonHang(maDon,user.getUid(),listMaSP,new Date().getTime(),0, (Long) TongGiaSP(position),ngayMua))
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isComplete()){
                             Toast.makeText(context, "Đơn hàng đang chờ nhân viên xác nhận", Toast.LENGTH_SHORT).show();
-                            xoa(list_gio.get(position).getMaGio());
+//                            guiThongBao();
                         }else {
                             Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+        for (String s : listMaGio){
+            db.collection("gioHang").document(s).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isComplete()){
+                        notifyDataSetChanged();
+                    }else {
+                        Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        Toast.makeText(context, "Thành công", Toast.LENGTH_SHORT).show();
+    }
+    private List<String> getListMa() {
+        List<String> listGio = new ArrayList<>();
+        listMaSP = new ArrayList<>();
+        for (giohang gh : list_gio){
+            listGio.add(gh.getMaGio());
+            listMaSP.add(new Don(gh.getMaSanPham(),gh.getSoLuong()));
+        }
+        return listGio;
     }
 
     private Object TongGiaSP(int position) {
@@ -208,4 +257,5 @@ public class Adapter_giohang extends RecyclerView.Adapter<Adapter_giohang.ViewHo
             xoa = itemView.findViewById(R.id.tv_xoa_giohang);
         }
     }
+
 }

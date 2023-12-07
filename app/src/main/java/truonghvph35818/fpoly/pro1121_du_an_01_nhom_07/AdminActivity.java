@@ -23,6 +23,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -117,6 +120,13 @@ public class AdminActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 startActivity(new Intent(AdminActivity.this, DangNhap.class));
+                                AuthUI.getInstance()
+                                        .signOut(AdminActivity.this)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                // ...
+                                            }
+                                        });
 
                             }
                         });
