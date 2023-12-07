@@ -108,7 +108,7 @@ public class Frag_QLNhanVien extends Fragment {
                             Toast.makeText(getContext(), "Không đúng định dạng của email", Toast.LENGTH_SHORT).show();
                         } else if (matkhau.length() < 8) {
                             Toast.makeText(getContext(), "Mật khẩu phải từ 8 chữ số", Toast.LENGTH_SHORT).show();
-                        } else if (!isValidatePhone(sdt) || sdt.length() <10) {
+                        } else if (!isValidatePhone(sdt) || sdt.length() <10 || sdt.length() > 10) {
                             Toast.makeText(getContext(), "Số điện thoại không đúng", Toast.LENGTH_SHORT).show();
                         } else {
                             themTK();

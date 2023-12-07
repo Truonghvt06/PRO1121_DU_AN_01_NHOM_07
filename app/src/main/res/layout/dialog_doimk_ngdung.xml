@@ -32,7 +32,7 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:hint="Nhập mật khẩu cũ"
-            android:id="@+id/ed_mkcu_dmk"
+            android:id="@+id/ed_mkcu_nd"
             android:background="@drawable/botron"
             android:padding="12dp"
             android:layout_gravity="center"
@@ -41,7 +41,7 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:hint="Mật khẩu mới"
-            android:id="@+id/ed_mkmoi_dmk"
+            android:id="@+id/ed_mkmoi_nd"
             android:layout_marginTop="10dp"
             android:background="@drawable/botron"
             android:padding="12dp"
@@ -51,7 +51,7 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:hint="Nhập lại mật khẩu"
-            android:id="@+id/ed_re_mkmoi_dmk"
+            android:id="@+id/ed_re_mkmoi_nd"
             android:layout_marginTop="10dp"
             android:background="@drawable/botron"
             android:padding="12dp"
@@ -64,7 +64,7 @@
             android:layout_marginTop="50dp"
             android:gravity="center_horizontal">
             <Button
-                android:id="@+id/btn_huy"
+                android:id="@+id/btn_huy_nd"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/botron"
@@ -81,7 +81,7 @@
                 app:backgroundTint="@null"
                 android:textSize="30dp"
                 android:text="Lưu"
-                android:id="@+id/btn_luu"
+                android:id="@+id/btn_luu_nd"
                 android:textColor="@color/black" />
 
         </LinearLayout>

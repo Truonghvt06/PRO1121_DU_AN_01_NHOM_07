@@ -33,18 +33,18 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
         android:orientation="vertical"
         android:background="#FFD6D6"
         android:gravity="center"
         >
-        <ImageView
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_avatar_tk"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/avatar_tk"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_gravity="center_horizontal"
-            />
+            android:background="@drawable/avatar_tk" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -75,7 +75,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"/>
         <TextView
-            android:id="@+id/tv_ten"
+            android:id="@+id/tv_ten_tk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Admin"
@@ -109,7 +109,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"/>
         <TextView
-            android:id="@+id/tv_gioiTinh"
+            android:id="@+id/tv_gioiTinh_tk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nam"
@@ -143,7 +143,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"/>
         <TextView
-            android:id="@+id/tv_ngaySinh"
+            android:id="@+id/tv_ngaySinh_tk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="02/02/2002"
@@ -178,7 +178,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"/>
         <TextView
-            android:id="@+id/tv_sdt"
+            android:id="@+id/tv_sdt_tk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0966255168"
@@ -212,7 +212,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"/>
         <TextView
-            android:id="@+id/tv_email"
+            android:id="@+id/tv_email_tk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="admi@gmail.com"

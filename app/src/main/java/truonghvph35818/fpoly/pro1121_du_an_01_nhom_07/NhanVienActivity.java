@@ -65,12 +65,6 @@ public class NhanVienActivity extends AppCompatActivity {
                 .replace(R.id.frame_layout, new Frag_QLSanPham())
                 .commit();
 
-        //Frag mặc điịnh
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        Frag_QLNhanVien qlNhanVien = new Frag_QLNhanVien();
-//        fragmentManager.beginTransaction()
-//                .replace(R.id.drawer_layout, qlNhanVien)
-//                .commit();
 
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -80,22 +74,22 @@ public class NhanVienActivity extends AppCompatActivity {
 
 
 
-                if(item.getItemId() == R.id.ql_sanPham){
-                    fragment =Frag_QLSanPham ;
+                if(item.getItemId() == R.id.ql_sanPham_nv){
+                    fragment = Frag_QLSanPham ;
                     title = "Quản lý sản phẩm";
-                }else if(item.getItemId() == R.id.ql_donHang){
+                }else if(item.getItemId() == R.id.ql_donHang_nv){
                     fragment = new Frag_QLDonHang();
                     title = "Quản lý đơn hàng";
-                }else if(item.getItemId() == R.id.top10){
+                }else if(item.getItemId() == R.id.top10_nv){
                     fragment = new Frag_Top10();
                     title = "Top 10 bán chạy";
-                }else if(item.getItemId() == R.id.doanh_thu){
+                }else if(item.getItemId() == R.id.doanh_thu_nv){
                     fragment = new Frag_DoanhThu();
                     title = "Doanh thu";
-                }else if(item.getItemId() == R.id.doi_mk){
+                }else if(item.getItemId() == R.id.doi_mk_nv){
                     fragment = new Frag_DoiMatKhau();
                     title = "Đổi mật khẩu";
-                }else if(item.getItemId() == R.id.dang_xuat) {
+                }else if(item.getItemId() == R.id.dang_xuat_nv) {
                     fragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout);
                     FirebaseAuth.getInstance().signOut();
 
