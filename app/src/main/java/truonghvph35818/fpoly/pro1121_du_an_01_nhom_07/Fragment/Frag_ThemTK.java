@@ -119,6 +119,7 @@ public class Frag_ThemTK extends Fragment {
                         if (task.isComplete()){
                             Toast.makeText(getContext(), "Thêm tài khoản thành công!", Toast.LENGTH_SHORT).show();
                             FirebaseAuth.getInstance().signOut();
+
                         }else {
                             Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
                         }
