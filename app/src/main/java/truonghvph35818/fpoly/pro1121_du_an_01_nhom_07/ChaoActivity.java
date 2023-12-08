@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -52,15 +53,14 @@ public class ChaoActivity extends AppCompatActivity {
     }
 
     private void dangnhap() {
-        db.collection("User").whereEqualTo("email", user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("User").document(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isComplete()) {
                     User user = new User();
-                    for (QueryDocumentSnapshot c : task.getResult()) {
-                        user = c.toObject(User.class);
-                        Log.e("TAG", "onComplete: 8 " + user.getChucVu());
-                    }
+                        user = task.getResult().toObject(User.class);
+                    Log.e("TAG", "onComplete: "+user.getMaUser() );
+                    Log.e("TAG", "onComplete: 12 "+user.getChucVu() );
                     if (user.getChucVu() == 3) {
                         Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(ChaoActivity.this, NguoiDungActivity.class);
@@ -74,7 +74,7 @@ public class ChaoActivity extends AppCompatActivity {
                         Log.e("TAG", "onComplete: "+user.getEmail() );
                     }else if(user.getChucVu() == 2){
                         Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(ChaoActivity.this, AdminActivity.class);
+                        Intent i = new Intent(ChaoActivity.this, NhanVienActivity.class);
                         startActivity(i);
                         finish();
                     }
@@ -83,6 +83,7 @@ public class ChaoActivity extends AppCompatActivity {
                 }
             }
         });
+
 
     }
 }
