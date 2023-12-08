@@ -73,7 +73,7 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
         donHanga = donHang;
 
         holder.tv_tenKH.setText("Họ tên:" + data[0]);
-        holder.tv_diaChi.setText("Địa chỉ: " + data[1]);
+//        holder.tv_diaChi.setText("Địa chỉ: " + data[1]);
         holder.tv_sdt.setText("Sđt: " + data[2]);
         holder.tv_tensp.setText("Giá: " + data[3]);
         holder.tv_gia.setText("Số Lượng :" + data[4]);
@@ -123,7 +123,7 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isComplete()) {
-                    Toast.makeText(context, "Đang chạy bước 2", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Đang chạy bước 2", Toast.LENGTH_SHORT).show();
                     if (i == 1) {
                         updataDonHang(i, donHang);
                     }
@@ -144,7 +144,7 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isComplete()) {
-                    Toast.makeText(context, "Đang chạy bước 3", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Đang chạy bước 3", Toast.LENGTH_SHORT).show();
                     setTop(donHang);
 
                 } else {
@@ -246,7 +246,6 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_tenKH = itemView.findViewById(R.id.tv_tenKhach);
-            tv_diaChi = itemView.findViewById(R.id.tv_diaChi);
             tv_sdt = itemView.findViewById(R.id.tv_sdt);
 
             tv_gia = itemView.findViewById(R.id.tv_gia);

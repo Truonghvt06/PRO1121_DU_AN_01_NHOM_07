@@ -44,7 +44,7 @@ public class Adapter_donhang extends RecyclerView.Adapter<Adapter_donhang.ViewHo
     @SuppressLint({"RecyclerView", "ResourceAsColor"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String Xanh = "#89FF00";
+        String Xanh = "#0000FF";
         String Do = "#FF0000";
         String Cam = "#FFC107";
 
@@ -55,15 +55,15 @@ public class Adapter_donhang extends RecyclerView.Adapter<Adapter_donhang.ViewHo
         holder.soLuong.setText("Số lượng: " + soluong + " SP");
         holder.ngay.setText("Ngày mua: " + list_donHang.get(position).getNgayMua());
         if (list_donHang.get(position).getTrangThai() == 0) {
-            holder.trangthai.setText("Đang chờ xác nhận");
+            holder.trangthai.setText("Chờ xác nhận");
             holder.trangthai.setTextColor(Color.parseColor(Cam));
             holder.xoa.setVisibility(View.VISIBLE);
         } else if (list_donHang.get(position).getTrangThai() == 1) {
-            holder.trangthai.setText("Đã xác nhận đơn");
+            holder.trangthai.setText("Đã xác nhận");
             holder.xoa.setVisibility(View.GONE);
             holder.trangthai.setTextColor(Color.parseColor(Xanh));
         } else if (list_donHang.get(position).getTrangThai() == 3) {
-            holder.trangthai.setText("Đơn hàng bị từ chối");
+            holder.trangthai.setText("Bị từ chối");
             holder.trangthai.setTextColor(Color.parseColor(Do));
             holder.xoa.setVisibility(View.VISIBLE);
         } else {
