@@ -66,6 +66,8 @@ public class NhanVienActivity extends AppCompatActivity {
                 .commit();
 
 
+
+
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -163,7 +165,7 @@ public class NhanVienActivity extends AppCompatActivity {
         launcher.launch(intent);
     }
 
-    public void yeucauquyen(Context context) {
+    public void yeucauquyen1(Context context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             layAnh();
             return;

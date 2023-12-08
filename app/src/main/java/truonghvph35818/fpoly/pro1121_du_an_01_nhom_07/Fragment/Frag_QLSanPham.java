@@ -47,6 +47,7 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.SanPhamAdapter;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.AdminActivity;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.HangDTO;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.NhanVienActivity;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 
 public class Frag_QLSanPham extends Fragment {
@@ -177,8 +178,8 @@ public class Frag_QLSanPham extends Fragment {
         EditText thuonghieu = view.findViewById(R.id.ed_thuonghieu);
         EditText kichco = view.findViewById(R.id.ed_kichCo);
         EditText gia = view.findViewById(R.id.ed_gia);
-        RadioButton giay = view.findViewById(R.id.giay);
-        RadioButton dep = view.findViewById(R.id.dep);
+//        RadioButton giay = view.findViewById(R.id.giay);
+//        RadioButton dep = view.findViewById(R.id.dep);
         EditText mota = view.findViewById(R.id.ed_moTa);
         Button huy = view.findViewById(R.id.btn_huy_themsp);
         Button luu = view.findViewById(R.id.btn_luu_themsp);
@@ -302,7 +303,6 @@ dsthuonghieu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
     private void themanh() {
         AdminActivity adminActivity = (AdminActivity) getActivity();
         adminActivity.yeucauquyen(getContext());
-
 
     }
 

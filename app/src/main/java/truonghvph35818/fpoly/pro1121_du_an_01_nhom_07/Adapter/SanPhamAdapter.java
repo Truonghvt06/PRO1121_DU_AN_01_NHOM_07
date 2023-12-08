@@ -54,7 +54,7 @@ this.fragQlSanPham=fragQlSanPham;
         Glide.with(context).load(list.get(position).getAnh()).into(holder.img_anhSP);
         holder.tv_ten.setText(list.get(position).getTenSP());
         holder.tv_gia.setText(Integer.parseInt(list.get(position).getGia() + "") + "VND");
-
+        holder.tv_kich_co.setText(list.get(position).getKichCo() + "");
         holder.tv_thuonghieu.setText(list.get(position).getThuonghieu());
 
 
@@ -91,7 +91,7 @@ this.fragQlSanPham=fragQlSanPham;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img_anhSP, img_deleteSP;
-        TextView tv_ten, tv_gia, tv_thuonghieu, tv_theloai, tv_soLuong;
+        TextView tv_ten, tv_gia, tv_thuonghieu, tv_theloai, tv_kich_co;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,9 +99,9 @@ this.fragQlSanPham=fragQlSanPham;
             img_deleteSP = itemView.findViewById(R.id.delete_sp);
             tv_ten = itemView.findViewById(R.id.tv_ten_sp);
             tv_gia = itemView.findViewById(R.id.tv_gia_sp);
-            tv_theloai = itemView.findViewById(R.id.tv_theLoai_sp);
+//            tv_theloai = itemView.findViewById(R.id.tv_theLoai_sp);
             tv_thuonghieu = itemView.findViewById(R.id.tv_thuonghieu_sp);
-            tv_soLuong = itemView.findViewById(R.id.tv_soLuong);
+            tv_kich_co = itemView.findViewById(R.id.tv_kich_co);
         }
     }
 

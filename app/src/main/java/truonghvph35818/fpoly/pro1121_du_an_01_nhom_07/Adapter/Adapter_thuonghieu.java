@@ -42,7 +42,7 @@ public class Adapter_thuonghieu extends BaseAdapter {
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
         View view1 = inflater.inflate(R.layout.item_thuonghieu,parent,false);
         TextView ten = view1.findViewById(R.id.tv_ten_thuonghieu);
-        ten.setText("Tên: "+list.get(i).getTenHang());
+        ten.setText(list.get(i).getTenHang());
         return view1;
     }
 }

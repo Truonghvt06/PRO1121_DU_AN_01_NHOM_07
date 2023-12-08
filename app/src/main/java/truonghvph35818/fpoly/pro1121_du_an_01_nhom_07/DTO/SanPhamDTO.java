@@ -16,7 +16,7 @@ public class SanPhamDTO implements Serializable {
     private String moTa;
     private long kichCo;
     private  String thuonghieu;
-    private Long soLuong;
+//    private Long soLuong;
 
     public SanPhamDTO() {
     }
@@ -32,7 +32,7 @@ public class SanPhamDTO implements Serializable {
         this.moTa = moTa;
         this.kichCo = kichCo;
         this.thuonghieu = thuonghieu;
-        this.soLuong = soLuong;
+//        this.soLuong = soLuong;
     }
 
     public String getMaSp() {
@@ -107,11 +107,11 @@ public class SanPhamDTO implements Serializable {
         this.thuonghieu = thuonghieu;
     }
 
-    public Long getSoLuong() {
-        return soLuong;
-    }
-
-    public void setSoLuong(Long soLuong) {
-        this.soLuong = soLuong;
-    }
+//    public Long getSoLuong() {
+//        return soLuong;
+//    }
+//
+//    public void setSoLuong(Long soLuong) {
+//        this.soLuong = soLuong;
+//    }
 }

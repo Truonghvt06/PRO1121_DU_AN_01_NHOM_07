@@ -69,12 +69,8 @@ public class AdminActivity extends AppCompatActivity {
                 .replace(R.id.frame_layout, new Frag_QLNhanVien())
                 .commit();
 
-        //Frag mặc điịnh
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        Frag_QLNhanVien qlNhanVien = new Frag_QLNhanVien();
-//        fragmentManager.beginTransaction()
-//                .replace(R.id.drawer_layout, qlNhanVien)
-//                .commit();
+
+
 
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

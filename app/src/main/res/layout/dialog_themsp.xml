@@ -66,25 +66,25 @@
             android:layout_marginTop="10dp"
             android:hint="Giá"/>
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-                >
-                <RadioButton
-                    android:id="@+id/giay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                        android:text="Giầy "/>
-                <RadioButton
-                    android:id="@+id/dep"
-                    android:layout_marginLeft="70dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dép "/>
+<!--        <RadioGroup-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="center"-->
+<!--                >-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/giay"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                        android:text="Giầy "/>-->
+<!--                <RadioButton-->
+<!--                    android:id="@+id/dep"-->
+<!--                    android:layout_marginLeft="70dp"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Dép "/>-->
 
-        </RadioGroup>
+<!--        </RadioGroup>-->
         <EditText
             android:id="@+id/ed_moTa"
             android:layout_width="match_parent"
@@ -103,7 +103,7 @@
 
             <Button
                 android:id="@+id/btn_huy_themsp"
-                android:layout_width="170dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/botron"
                 app:backgroundTint="@null"
@@ -114,7 +114,7 @@
                 android:textColor="#FF1100"/>
             <Button
                 android:id="@+id/btn_luu_themsp"
-                android:layout_width="170dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/botron"
                 app:backgroundTint="@null"

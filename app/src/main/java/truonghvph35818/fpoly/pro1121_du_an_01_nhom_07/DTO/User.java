@@ -11,15 +11,13 @@ public class User {
     private String ngaySinh;
     private String gioiTinh;
     private int chucVu;
-    private List<String> diachi;
-    private String chonDiaCHi;
     private int trangThai;
 
 
     public User() {
     }
 
-    public User(String anh, String maUser, String email, String hoTen, String SDT, String ngaySinh, String gioiTinh, int chucVu, List<String> diachi, String chonDiaCHi, int trangThai) {
+    public User(String anh, String maUser, String email, String hoTen, String SDT, String ngaySinh, String gioiTinh, int chucVu,int trangThai) {
         this.anh = anh;
         this.maUser = maUser;
         Email = email;
@@ -28,8 +26,6 @@ public class User {
         this.ngaySinh = ngaySinh;
         this.gioiTinh = gioiTinh;
         this.chucVu = chucVu;
-        this.diachi = diachi;
-        this.chonDiaCHi = chonDiaCHi;
         this.trangThai = trangThai;
     }
 
@@ -89,21 +85,6 @@ public class User {
         this.chucVu = chucVu;
     }
 
-    public List<String> getDiachi() {
-        return diachi;
-    }
-
-    public void setDiachi(List<String> diachi) {
-        this.diachi = diachi;
-    }
-
-    public String getChonDiaCHi() {
-        return chonDiaCHi;
-    }
-
-    public void setChonDiaCHi(String chonDiaCHi) {
-        this.chonDiaCHi = chonDiaCHi;
-    }
 
     public int getTrangThai() {
         return trangThai;

@@ -72,23 +72,26 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
         }
         donHanga = donHang;
 
+
+
+
+
+        String maSP = donHang.getListSP().get(0).getMaSP();
+        layTenSP(maSP, holder.tv_tensp);
+        layAnh(maSP, holder.anh);
+
+
+
+
+
         holder.tv_tenKH.setText("Họ tên:" + data[0]);
-//        holder.tv_diaChi.setText("Địa chỉ: " + data[1]);
+        holder.tv_tensp.setText("Tên SP: " + data[1]);
         holder.tv_sdt.setText("Sđt: " + data[2]);
-        holder.tv_tensp.setText("Giá: " + data[3]);
-        holder.tv_gia.setText("Số Lượng :" + data[4]);
+        holder.tv_gia.setText("Giá: " + data[3]);
+        holder.tv_soluong.setText("Số Lượng :" + data[4]);
 
 
-//        Long gia = Long.parseLong(data[3]);
-//        tienHoan = gia;
-//        if (data.length > 5) {
-//            // Truy cập các phần tử của mảng
-//
-//
-//            // Xử lý khi kích thước mảng không đủ
-//            // (có thể là một thông báo lỗi hoặc xử lý khác)
-//            Toast.makeText(context, "lỗi", Toast.LENGTH_SHORT).show();
-//        }
+
         holder.img_xoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +106,51 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
 
             }
         });
+    }
+
+    private void layAnh(String maSP, ImageView anh) {
+        FirebaseFirestore.getInstance().collection("Sanpham")
+                .document(maSP)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            // lấy ảnh
+                            String imageURL = task.getResult().getString("anh");
+
+                            // tải ảnh vào imgv bằng glide
+                            Glide.with(context)
+                                    .load(imageURL)
+                                    .placeholder(R.drawable.anh_sp)
+                                    .error(R.drawable.canh_bao)
+                                    .into(anh);
+                        } else {
+
+                            Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void layTenSP(String maSP, TextView tvTensp) {
+        FirebaseFirestore.getInstance().collection("Sanpham")
+                .document(maSP)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            //Lấy tên sp từ firebase
+                            String tenSP = task.getResult().getString("tenSP");
+
+                            tvTensp.setText("Tên SP: " + tenSP);
+                        } else {
+                            // Handle the error
+                            Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     public SanPhamDTO getmaSP(String masp) {
@@ -219,7 +267,6 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
             if (donHang.getMaKhachHang()
                     .equals(u.getMaUser())) {
                 a[0] = u.getHoTen();
-                a[1] = u.getChonDiaCHi();
                 a[2] = u.getSDT();
             }
         }
@@ -239,7 +286,7 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tv_tenKH, tv_gia, tv_diaChi, tv_sdt, tv_soluong, tv_tensp;
+        TextView tv_tenKH, tv_gia, tv_tensp, tv_sdt, tv_soluong;
         ImageView img_xoa, img_xacnhan;
         ImageView anh;
 
@@ -248,9 +295,10 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
             tv_tenKH = itemView.findViewById(R.id.tv_tenKhach);
             tv_sdt = itemView.findViewById(R.id.tv_sdt);
 
-            tv_gia = itemView.findViewById(R.id.tv_gia);
-            tv_tensp = itemView.findViewById(R.id.tv_tensp);
+            tv_gia = itemView.findViewById(R.id.tv_GIA);
+            tv_tensp = itemView.findViewById(R.id.tv_TEN_SP);
             anh = itemView.findViewById(R.id.img_anhsp);
+            tv_soluong = itemView.findViewById(R.id.tv_SOLUONG);
 
             img_xoa = itemView.findViewById(R.id.img_Huy);
             img_xacnhan = itemView.findViewById(R.id.img_XacNhan);

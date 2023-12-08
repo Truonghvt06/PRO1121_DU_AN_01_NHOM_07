@@ -45,7 +45,11 @@
                     android:layout_height="wrap_content"
                     android:text="Tên khách hàng" />
 
-
+                <TextView
+                    android:id="@+id/tv_TEN_SP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tenSp" />
                 <TextView
                     android:id="@+id/tv_sdt"
                     android:layout_width="wrap_content"
@@ -53,15 +57,15 @@
                     android:text="Sđt" />
 
                 <TextView
-                    android:id="@+id/tv_tensp"
+                    android:id="@+id/tv_GIA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tên sp" />
+                    android:text="gia" />
                 <TextView
-                    android:id="@+id/tv_gia"
+                    android:id="@+id/tv_SOLUONG"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Giá" />
+                    android:text="soluong" />
 
             </LinearLayout>
             <LinearLayout
