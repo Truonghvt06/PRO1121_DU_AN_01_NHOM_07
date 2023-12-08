@@ -49,7 +49,8 @@ public class Adapter_donhang extends RecyclerView.Adapter<Adapter_donhang.ViewHo
         String Cam = "#FFC107";
 
         Long soluong = TongGiaSP(position);
-        holder.tenSP.setText("Mã hàng: " + list_donHang.get(position).getMaDonHang());
+        holder.maSP.setText("Mã hàng: " + list_donHang.get(position).getMaDonHang());
+//        holder.tenSP.setText("Tên SP: " + list_donHang.get(position).getT);
         holder.giaSP.setText("Tổng giá: " + list_donHang.get(position).getGiaDon() + "đ");
         holder.soLuong.setText("Số lượng: " + soluong + " SP");
         holder.ngay.setText("Ngày mua: " + list_donHang.get(position).getNgayMua());
@@ -114,11 +115,12 @@ public class Adapter_donhang extends RecyclerView.Adapter<Adapter_donhang.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tenSP, soLuong, giaSP, trangthai, xoa, ngay;
+        TextView tenSP, soLuong, giaSP, trangthai, xoa, ngay, maSP;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tenSP = itemView.findViewById(R.id.tv_tensp_gioHang);
+            maSP = itemView.findViewById(R.id.tv_masp_gioHang);
+//            tenSP = itemView.findViewById(R.id.tv_tenSp_gioHang);
             giaSP = itemView.findViewById(R.id.tv_giasp_giohang);
             soLuong = itemView.findViewById(R.id.tv_soluongsp_giohang);
             trangthai = itemView.findViewById(R.id.tv_mua_giohang);

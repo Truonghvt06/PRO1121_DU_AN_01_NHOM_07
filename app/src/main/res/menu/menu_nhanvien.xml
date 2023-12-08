@@ -24,7 +24,7 @@
             <menu>
                 <item android:id="@+id/doi_mk_nv"
                     android:title="Đổi mật khẩu"
-                    android:icon="@drawable/top10"/>
+                    android:icon="@drawable/doi_mk"/>
                 <item android:id="@+id/dang_xuat_nv"
                     android:title="Đăng xuất"
                     android:icon="@drawable/dang_xuat"/>

@@ -16,7 +16,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1" />
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/menu_nav"
         android:layout_width="match_parent"

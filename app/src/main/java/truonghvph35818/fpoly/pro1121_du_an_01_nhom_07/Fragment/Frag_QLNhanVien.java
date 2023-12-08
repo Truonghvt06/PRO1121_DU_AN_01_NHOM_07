@@ -1,7 +1,11 @@
 package truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment;
 
+
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -35,6 +39,9 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +52,7 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.User;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 
 public class Frag_QLNhanVien extends Fragment {
+
     List<User> list ;
     ImageView img_themAnhNV;
     EditText ed_hoTen, ed_gioiTinh, ed_namSinh, ed_email, ed_sdt, ed_matKhau;
@@ -56,8 +64,11 @@ public class Frag_QLNhanVien extends Fragment {
     User user = new User();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
     String email,matkhau,hoten,sdt,namsinh,gioitinh;
     Dialog dialog;
+    private static final int PICK_IMAGE_REQUEST = 1;
     public Frag_QLNhanVien() {
         // Required empty public constructor
     }
@@ -90,6 +101,14 @@ public class Frag_QLNhanVien extends Fragment {
                 btn_Luu = view1.findViewById(R.id.luu_themsp);
                 btn_Huy = view1.findViewById(R.id.huy_themsp);
 
+                img_themAnhNV.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_PICK);
+                        intent.setType("image/*");
+                        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+                    }
+                });
                 btn_Luu.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -224,5 +243,46 @@ public class Frag_QLNhanVien extends Fragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+            Uri imageUri = data.getData();
+
+            img_themAnhNV.setImageURI(imageUri);
+            UpAnhFirebase(imageUri);
+        }
+    }
+
+    private void UpAnhFirebase(Uri imageUri) {
+        String imageName = UUID.randomUUID().toString() + ".jpg";
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageReference = storage.getReference().child("images/" + imageName);
+
+
+        storageReference.putFile(imageUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String imageUrl = uri.toString();
+                                user.setAnh(imageUrl);
+                                Toast.makeText(getContext(), "Up thành công!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle failure
+                        Toast.makeText(getContext(), "Lỗi!", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

@@ -23,14 +23,22 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_tensp_gioHang"
+                android:id="@+id/tv_masp_gioHang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tên sản phẩm"
+                android:text="mã"
                 android:textColor="@color/black"
                 android:textSize="16dp"
 
                 android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:id="@+id/tv_tenSp_gioHang"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Tên sản phẩm"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="16dp"-->
+<!--                />-->
 
 
             <LinearLayout
@@ -50,7 +58,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Kích cỡ"
+                    android:text="số lượng"
                     android:textColor="#050505" />
 
             </LinearLayout>
@@ -58,7 +66,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="Loại"
+                android:text="ngày mua"
                 android:textColor="@color/black"
                 android:id="@+id/tv_ngay_mua"
                 android:layout_weight="1" />
@@ -69,7 +77,8 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -91,12 +100,12 @@
                     android:id="@+id/tv_xoa_giohang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/white"
+                    android:background="@drawable/boanh"
                     android:textColor="@color/black"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     android:text="Loại bỏ" />
             </LinearLayout>
         </LinearLayout>

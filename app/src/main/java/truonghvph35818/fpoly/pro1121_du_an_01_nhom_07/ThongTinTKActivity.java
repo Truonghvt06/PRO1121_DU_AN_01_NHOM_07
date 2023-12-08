@@ -42,7 +42,7 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.User;
 
 public class ThongTinTKActivity extends AppCompatActivity {
 
-    private static final int PICK_IMAGE_REQUEST = 1;
+    private static final int PICK_IMAGE_REQUEST = 2;
     ImageView img_back;
     CircleImageView img_anh;
     TextView tv_ten, tv_gioiTinh, tv_ngaySinh, tv_sdt, tv_email;

@@ -13,24 +13,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:background="@drawable/botron"
         >
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center">
-            <ImageView
+            <androidx.cardview.widget.CardView
                 android:layout_width="120dp"
                 android:layout_height="130dp"
-                android:scaleType="centerCrop"
-                android:background="@color/white"
-                android:id="@+id/imv_anh_sp_gioHang"/>
+                app:cardCornerRadius="10dp"
+                >
+
+                <ImageView
+                    android:id="@+id/imv_anh_sp_gioHang"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#03A9F4"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Giá ok"
                 android:background="@color/white"
                 android:paddingLeft="10dp"
+                android:textColor="#F44336"
+                android:textStyle="bold"
                 android:paddingRight="10dp"
                 android:layout_marginTop="5dp"
                 android:id="@+id/tv_giasp_giohang"/>
@@ -86,25 +96,33 @@
                 android:layout_weight="1"/>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mua ngay"
-                    android:background="@color/white"
+                    android:text="MUA NGAY"
+                    android:textStyle="bold"
+                    android:background="@drawable/boanh"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/tv_mua_giohang"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Xóa"
-                    android:background="@color/white"
-                    android:paddingLeft="10dp"
-                    android:layout_marginLeft="40dp"
-                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="XÓA"
+                    android:textStyle="bold"
+                    android:background="@drawable/boanh"
+                    android:layout_marginLeft="70dp"
                     android:layout_marginTop="5dp"
                     android:id="@+id/tv_xoa_giohang"/>
             </LinearLayout>

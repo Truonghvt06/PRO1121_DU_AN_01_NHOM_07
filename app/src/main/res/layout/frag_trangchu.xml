@@ -13,17 +13,19 @@
         android:orientation="horizontal"
         android:background="@drawable/bo_bottom">
         <ImageView
-            android:layout_width="100dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:src="@drawable/logo"/>
 <TextView
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
+    android:layout_weight="2.5"
     android:text="Trang chủ"
     android:textStyle="bold"
-    android:textSize="30dp"
+    android:textSize="25dp"
     android:layout_gravity="center"
-    android:layout_marginLeft="65dp"/>
+    android:layout_marginLeft="70dp"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

@@ -12,17 +12,20 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="80dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:layout_weight="1"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="2.5"
             android:layout_gravity="center"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="70dp"
             android:text="Giỏ Hàng"
             android:textSize="25dp"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
 
@@ -34,16 +37,21 @@
         android:layout_height="wrap_content"
         android:layout_weight="1" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#878383"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="#FEFEFE"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
+            android:layout_marginLeft="10dp"
             android:text="Tống tiền :" />
 
         <TextView
@@ -54,15 +62,19 @@
             android:textColor="#F44336"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_mua_giohang"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:background="@drawable/botron"
-            app:backgroundTint="@null"
-            android:text="Mua ngay"
-            android:textColor="@color/black" />
+            android:layout_height="40dp">
+            <Button
+                android:id="@+id/btn_mua_giohang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="180dp"
+                android:background="@drawable/botron"
+                app:backgroundTint="@null"
+                android:text="MUA NGAY"
+                android:textColor="@color/black" />
+        </LinearLayout>
 
     </LinearLayout>
 

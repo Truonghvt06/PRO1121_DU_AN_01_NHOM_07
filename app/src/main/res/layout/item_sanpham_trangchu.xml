@@ -14,12 +14,17 @@
         android:padding="10dp"
         android:background="@drawable/botron"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/anh_sp"
-            android:scaleType="centerCrop"
-            android:id="@+id/imv_anh_sp_trangchu"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="180dp"
+            android:layout_height="185dp"
+            app:cardCornerRadius="10dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/anh_sp"
+                android:scaleType="centerCrop"
+                android:id="@+id/imv_anh_sp_trangchu"/>
+        </androidx.cardview.widget.CardView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,6 +32,7 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:layout_marginTop="5dp"
             android:id="@+id/tv_tensp_trangchu"/>
         <TextView
             android:layout_width="match_parent"
