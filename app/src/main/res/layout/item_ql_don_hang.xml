@@ -59,11 +59,6 @@
                     android:layout_height="wrap_content"
                     android:text="Giá" />
 
-                <TextView
-                    android:id="@+id/tv_soLuong_"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Số lượng" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

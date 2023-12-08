@@ -72,23 +72,23 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
         }
         donHanga = donHang;
 
+        holder.tv_tenKH.setText("Họ tên:" + data[0]);
+        holder.tv_diaChi.setText("Địa chỉ: " + data[1]);
+        holder.tv_sdt.setText("Sđt: " + data[2]);
+        holder.tv_tensp.setText("Giá: " + data[3]);
+        holder.tv_gia.setText("Số Lượng :" + data[4]);
 
 
 //        Long gia = Long.parseLong(data[3]);
 //        tienHoan = gia;
-        if (data.length > 5) {
-            // Truy cập các phần tử của mảng
-            holder.tv_tenKH.setText("Họ tên:" + data[0]);
-            holder.tv_diaChi.setText("Địa chỉ: " + data[1]);
-            holder.tv_sdt.setText("Sđt: " + data[2]);
-            holder.tv_tensp.setText("Tên SP: " + data[3]);
-            holder.tv_gia.setText("Giá :" + data[4]);
-            holder.tv_soluong.setText("Số lượng sản phẩm mua: " + data[5]);
-        } else {
-            // Xử lý khi kích thước mảng không đủ
-            // (có thể là một thông báo lỗi hoặc xử lý khác)
-            Toast.makeText(context, "lỗi", Toast.LENGTH_SHORT).show();
-        }
+//        if (data.length > 5) {
+//            // Truy cập các phần tử của mảng
+//
+//
+//            // Xử lý khi kích thước mảng không đủ
+//            // (có thể là một thông báo lỗi hoặc xử lý khác)
+//            Toast.makeText(context, "lỗi", Toast.LENGTH_SHORT).show();
+//        }
         holder.img_xoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +99,8 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
             @Override
             public void onClick(View v) {
                 trangThai(1, donHang);
+                Log.e("QL_DonHangAdapter", "Xác nhận đơn hàng - Bắt đầu");
+
             }
         });
     }
@@ -116,7 +118,8 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
             return;
         }
         donHang.setTrangThai(i);
-        firestore.collection("DonHang").document(donHang.getMaDonHang()).set(donHang).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+        firestore.collection("donHang").document(donHang.getMaDonHang()).set(donHang).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isComplete()) {
@@ -158,44 +161,15 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
         }
     }
 
-    private void capnhatSoluong(String maSP, Long soLuong) {
-        final SanPhamDTO[] sp = {new SanPhamDTO()};
-        firestore.collection("Sanpham").document(maSP).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (!task.isComplete()) {
-                    return;
-                }
-                sp[0] = task.getResult().toObject(SanPhamDTO.class);
-                if (sp[0].getSoLuong() < soLuong) {
-                    Toast.makeText(context, "Số lượng trong kho không đủ", Toast.LENGTH_SHORT).show();
-                    huyDon(donHanga, user);
-                    return;
-                }
-                sp[0] = task.getResult().toObject(SanPhamDTO.class);
-                sp[0].setSoLuong(sp[0].getSoLuong() - soLuong);
-                firestore.collection("Sanpham").document(maSP).set(sp[0]).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (!task.isComplete()) {
-                            return;
-                        }
-                        Toast.makeText(context, "Hoàn thành", Toast.LENGTH_SHORT).show();
-//                        guiThongBao();
-//                        Log.e(TAG, "onComplete: " + "trừ hàng thành công");
-                    }
-                });
 
-            }
-        });
 
-    }
+
 
 
 
     private void huyDon(DonHang donHang, User user) {
         donHang.setTrangThai(3);
-        firestore.collection("DonHang").document(donHang.getMaDonHang()).set(donHang).addOnCompleteListener(new OnCompleteListener<Void>() {
+        firestore.collection("donHang").document(donHang.getMaDonHang()).set(donHang).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (!task.isComplete()) {
@@ -226,8 +200,8 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isComplete()) {
-                            Toast.makeText(context, "Đang chạy bước 4", Toast.LENGTH_SHORT).show();
-                            capnhatSoluong(maSP, sl);
+                            Toast.makeText(context, "Thành công", Toast.LENGTH_SHORT).show();
+
 //                            Log.e(TAG, "onComplete: " + "đẩy dữ liệu thành công");
                         }
                     }
@@ -274,7 +248,7 @@ public class QL_DonHangAdapter extends RecyclerView.Adapter<QL_DonHangAdapter.Vi
             tv_tenKH = itemView.findViewById(R.id.tv_tenKhach);
             tv_diaChi = itemView.findViewById(R.id.tv_diaChi);
             tv_sdt = itemView.findViewById(R.id.tv_sdt);
-            tv_soluong = itemView.findViewById(R.id.tv_soLuong_);
+
             tv_gia = itemView.findViewById(R.id.tv_gia);
             tv_tensp = itemView.findViewById(R.id.tv_tensp);
             anh = itemView.findViewById(R.id.img_anhsp);
