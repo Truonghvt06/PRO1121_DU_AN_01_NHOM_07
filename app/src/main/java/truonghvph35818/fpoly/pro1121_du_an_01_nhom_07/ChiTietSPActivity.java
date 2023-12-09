@@ -100,10 +100,13 @@ public class ChiTietSPActivity extends AppCompatActivity {
                 tinh("+");
             }
         });
-        getData(s);
+        layDuLieu(s);
     }
 
     private void getData(String a){
+
+    }
+    private void layDuLieu(String a){
         db=FirebaseFirestore.getInstance();
         db.collection("Sanpham").document(a).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
