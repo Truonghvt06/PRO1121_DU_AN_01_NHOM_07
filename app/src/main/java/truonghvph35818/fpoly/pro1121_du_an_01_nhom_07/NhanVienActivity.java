@@ -100,7 +100,7 @@ public class NhanVienActivity extends AppCompatActivity {
                     if (fragment != null) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(NhanVienActivity.this);
                         builder.setIcon(R.drawable.canh_bao);
-                        builder.setTitle("Thng báo!");
+                        builder.setTitle("Thông báo!");
                         builder.setMessage("Bạn có chắc muốn đăng xuất?");
                         builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                             @Override
@@ -158,7 +158,13 @@ public class NhanVienActivity extends AppCompatActivity {
 
                 }
             });
-    public void layAnh() {
+//    public void layAnh() {
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        launcher.launch(intent);
+//    }
+    public void layanh(){
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -167,7 +173,7 @@ public class NhanVienActivity extends AppCompatActivity {
 
     public void yeucauquyen1(Context context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            layAnh();
+            layanh();
             return;
         }
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
@@ -177,7 +183,7 @@ public class NhanVienActivity extends AppCompatActivity {
         }
         if (context.checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             // xử lý sau
-            layAnh();
+            layanh();
         } else {
             String[] quyen = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE};
             requestPermissions(quyen, CODE_QUYEN);
@@ -191,7 +197,7 @@ public class NhanVienActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == CODE_QUYEN) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                layAnh();
+                layanh();
             } else {
                 Toast.makeText(this, "Bạn cần cấp quyền để sử dụng tính năng này", Toast.LENGTH_SHORT).show();
             }
