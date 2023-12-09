@@ -100,15 +100,15 @@ public class ChiTietSPActivity extends AppCompatActivity {
                 tinh("+");
             }
         });
-        LayDuLieu(s);
+        getData(s);
     }
-    private void LayDuLieu(String a){
-        db = FirebaseFirestore.getInstance();
+
+    private void getData(String a){
+        db=FirebaseFirestore.getInstance();
         db.collection("Sanpham").document(a).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isComplete()){
-                    sanPhamDTO.setThuonghieu(task.getResult().toObject(SanPhamDTO.class).getThuonghieu());
                     sanPhamDTO.setAnh(task.getResult().toObject(SanPhamDTO.class).getAnh());
                     sanPhamDTO.setMaSp(task.getResult().toObject(SanPhamDTO.class).getMaSp());
                     sanPhamDTO.setGia(task.getResult().toObject(SanPhamDTO.class).getGia());
