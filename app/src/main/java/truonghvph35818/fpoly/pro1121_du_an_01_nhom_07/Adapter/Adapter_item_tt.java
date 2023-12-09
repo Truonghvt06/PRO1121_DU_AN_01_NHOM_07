@@ -1,6 +1,5 @@
 package truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +19,6 @@ import java.util.List;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.ChiTietSPActivity;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.show_sanpham;
 
 public class Adapter_item_tt extends RecyclerView.Adapter<Adapter_item_tt.ViewHolder>  {
     Context context;

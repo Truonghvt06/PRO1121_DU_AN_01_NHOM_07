@@ -18,7 +18,7 @@ import java.util.List;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.HangDTO;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
-import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.show_sanpham;
+import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Show_SanPham;
 
 public class Adapter_trangchu extends RecyclerView.Adapter<Adapter_trangchu.Viewholder>  {
     List<HangDTO> list;
@@ -52,7 +52,7 @@ public class Adapter_trangchu extends RecyclerView.Adapter<Adapter_trangchu.View
         holder.xemthem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, show_sanpham.class);
+                Intent intent = new Intent(context, Show_SanPham.class);
                 List<SanPhamDTO> phamList = list.get(position).getSanPham();
                 String [] s = new String[]{list.get(position).getMaHang(),list.get(position).getTenHang()};
                 intent.putExtra("list",  s);
