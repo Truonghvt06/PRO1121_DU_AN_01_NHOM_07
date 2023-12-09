@@ -43,6 +43,7 @@ public class show_sanpham extends AppCompatActivity {
         list = new ArrayList<>();
         rcv_list = findViewById(R.id.rcv_list_sanPham_more);
         TextView tenhang = findViewById(R.id.tv_ten_hang_show);
+        tenhang.setText(a[1]);
         ImageView close = findViewById(R.id.iv_close);
         itemCuaHang = new Adapter_item_tt(show_sanpham.this,list);
         rcv_list.setAdapter(itemCuaHang);
