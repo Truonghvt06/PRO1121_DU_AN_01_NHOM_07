@@ -1,18 +1,22 @@
 package truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -24,6 +28,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.Adapter_trangchu;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.bannerADapter;
@@ -33,10 +39,15 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.banner;
 
 public class Frag_TrangChu extends Fragment {
-    private RecyclerView rcy_list,rcy_banner;
+     RecyclerView rcy_list,rcy_banner;
+     ViewPager2 viewPagerBanner;
+    bannerADapter bannerAdapter;
+     List<banner> bannerList;
+    private int currentPage = 0;
+    private Timer timer;
+
     EditText editText;
     ImageView imageView;
-    bannerADapter bannerADapter;
     List<HangDTO> listthuonghieu;
     List<SanPhamDTO> sanPhamDTOList;
     FirebaseFirestore db;
@@ -60,17 +71,52 @@ public class Frag_TrangChu extends Fragment {
         sanPhamDTOList =new ArrayList<>();
         adapterTrangchu=new Adapter_trangchu(listthuonghieu,getContext());
 
-        rcy_banner = view.findViewById(R.id.rcy_banner);
+        //bannner
+        viewPagerBanner = view.findViewById(R.id.viewPager_banner);
+
         rcy_list=view.findViewById(R.id.Rcv_trangchu);
         imageView =view.findViewById(R.id.img_timKiem);
         editText =view.findViewById(R.id.ed_timKiem);
-        bannerADapter =new bannerADapter(getanh(),getContext());
-        rcy_banner.setAdapter(bannerADapter);
+
+        bannerAdapter = new bannerADapter(getanh(), getContext());
         rcy_list.setAdapter(adapterTrangchu);
         rcy_list.setLayoutManager(new LinearLayoutManager(getContext()));
-        rcy_banner.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
-laydulieu();
+
+        viewPagerBanner.setAdapter(bannerAdapter);
+        startAutoSwipeTimer();
+
+        laydulieu();
     }
+
+    private void startAutoSwipeTimer() {
+        final Handler handler = new Handler(Looper.getMainLooper());
+        final Runnable update = () -> {
+            if (currentPage == getanh().size()) {
+                currentPage = 0;
+            }
+            viewPagerBanner.setCurrentItem(currentPage++, true);
+        };
+
+        timer = new Timer(); // This will create a new Thread
+        timer.schedule(new TimerTask() { // task to be scheduled
+            @Override
+            public void run() {
+                handler.post(update);
+            }
+        }, 500, 3000);
+    }
+
+
+
+    public void onDestroy() {
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+        super.onDestroy();
+    }
+
+
 
     private void laydulieu() {
         db = FirebaseFirestore.getInstance();
