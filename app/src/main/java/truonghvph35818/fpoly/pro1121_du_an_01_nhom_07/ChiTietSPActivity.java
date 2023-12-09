@@ -121,7 +121,7 @@ public class ChiTietSPActivity extends AppCompatActivity {
                     kickco.setText(sanPhamDTO.getKichCo()+"");
                     mota.setText(sanPhamDTO.getMoTa());
                 }else {
-                    Toast.makeText(ChiTietSPActivity.this, "Sản phẩm đã bị xóa", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChiTietSPActivity.this, "Sản phẩm đã bị xóa ", Toast.LENGTH_SHORT).show();
 
                 }
             }
