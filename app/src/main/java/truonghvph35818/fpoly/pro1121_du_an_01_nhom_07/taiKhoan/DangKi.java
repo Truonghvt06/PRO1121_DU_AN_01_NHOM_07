@@ -118,7 +118,7 @@ public class DangKi extends AppCompatActivity {
         });
     }
 
-    private void TaoUser() {
+    public void TaoUser(){
         user = firebaseAuth.getCurrentUser();
         firestore = FirebaseFirestore.getInstance();
         if (user == null){
@@ -156,4 +156,5 @@ public class DangKi extends AppCompatActivity {
         });
 
     }
+
 }

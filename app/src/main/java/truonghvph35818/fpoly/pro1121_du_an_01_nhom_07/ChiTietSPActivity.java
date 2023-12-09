@@ -100,16 +100,14 @@ public class ChiTietSPActivity extends AppCompatActivity {
                 tinh("+");
             }
         });
-        laydulieu(s);
+        LayDuLieu(s);
     }
-
-    private void laydulieu(String s) {
+    private void LayDuLieu(String a){
         db = FirebaseFirestore.getInstance();
-        db.collection("Sanpham").document(s).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Sanpham").document(a).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isComplete()) {
-                    Log.e("TAG", "onComplete: " + task.getResult().toObject(SanPhamDTO.class).getGia());
+                if(task.isComplete()){
                     sanPhamDTO.setThuonghieu(task.getResult().toObject(SanPhamDTO.class).getThuonghieu());
                     sanPhamDTO.setAnh(task.getResult().toObject(SanPhamDTO.class).getAnh());
                     sanPhamDTO.setMaSp(task.getResult().toObject(SanPhamDTO.class).getMaSp());
@@ -122,13 +120,15 @@ public class ChiTietSPActivity extends AppCompatActivity {
                     Glide.with(ChiTietSPActivity.this).load(sanPhamDTO.getAnh()).error(R.drawable.baseline_crop_original_24).into(anh);
                     kickco.setText(sanPhamDTO.getKichCo()+"");
                     mota.setText(sanPhamDTO.getMoTa());
-
-                } else {
+                }else {
                     Toast.makeText(ChiTietSPActivity.this, "Sản phẩm đã bị xóa", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
     }
+
+
 
 
     private void themGio() {
