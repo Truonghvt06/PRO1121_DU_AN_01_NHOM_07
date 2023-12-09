@@ -120,6 +120,7 @@ public class ChiTietSPActivity extends AppCompatActivity {
                     Glide.with(ChiTietSPActivity.this).load(sanPhamDTO.getAnh()).error(R.drawable.baseline_crop_original_24).into(anh);
                     kickco.setText(sanPhamDTO.getKichCo()+"");
                     mota.setText(sanPhamDTO.getMoTa());
+
                 }else {
                     Toast.makeText(ChiTietSPActivity.this, "Sản phẩm đã bị xóa ", Toast.LENGTH_SHORT).show();
 
