@@ -121,7 +121,7 @@ public class ChiTietSPActivity extends AppCompatActivity {
                     sanPhamDTO.setKichCo(task.getResult().toObject(SanPhamDTO.class).getKichCo());
                     sanPhamDTO.setMoTa(task.getResult().toObject(SanPhamDTO.class).getMoTa());
                     tenSP.setText(sanPhamDTO.getTenSP());
-                    gia.setText("Giá: " + sanPhamDTO.getGia());
+                    gia.setText("Giá: " + sanPhamDTO.getGia() + "VND");
                     Glide.with(ChiTietSPActivity.this).load(sanPhamDTO.getAnh()).error(R.drawable.baseline_crop_original_24).into(anh);
                     kickco.setText(sanPhamDTO.getKichCo()+"");
                     mota.setText(sanPhamDTO.getMoTa());

@@ -9,13 +9,19 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -32,7 +38,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
     public SanPhamAdapter(Context context, List<SanPhamDTO> list, Frag_QLSanPham fragQlSanPham) {
         this.context = context;
         this.list = list;
-this.fragQlSanPham=fragQlSanPham;
+        this.fragQlSanPham=fragQlSanPham;
 
     }
 
@@ -79,6 +85,92 @@ this.fragQlSanPham=fragQlSanPham;
                      });
 
                      builder.create().show();
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                suaSanPham(position);
+
+
+                return true;
+            }
+        });
+    }
+
+    private void suaSanPham(int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_themsp, null);
+        builder.setView(view);
+        Dialog dialog = builder.create();
+        dialog.show();
+
+        ImageView img_anh = view.findViewById(R.id.img_themAnhSP);
+        EditText tensp = view.findViewById(R.id.ed_tenSP);
+        EditText thuonghieu = view.findViewById(R.id.ed_thuonghieu);
+        EditText kichco = view.findViewById(R.id.ed_kichCo);
+        EditText gia = view.findViewById(R.id.ed_gia);
+
+        EditText mota = view.findViewById(R.id.ed_moTa);
+        Button huy = view.findViewById(R.id.btn_huy_themsp);
+        Button luu = view.findViewById(R.id.btn_luu_themsp);
+
+        SanPhamDTO sanPhamDTO = list.get(position);
+
+        Glide.with(context).load(sanPhamDTO.getAnh()).into(img_anh);
+        tensp.setText(sanPhamDTO.getTenSP());
+        thuonghieu.setText(sanPhamDTO.getThuonghieu());
+        kichco.setText(sanPhamDTO.getKichCo() + "");
+        gia.setText(sanPhamDTO.getGia() + "");
+        mota.setText(sanPhamDTO.getMoTa());
+
+        luu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                sanPhamDTO.setTenSP(tensp.getText().toString());
+//                sanPhamDTO.setThuonghieu(thuonghieu.getText().toString());
+//                sanPhamDTO.setKichCo(Long.parseLong(kichco.getText().toString()));
+//                sanPhamDTO.setGia(Long.parseLong(gia.getText().toString()));
+//                sanPhamDTO.setMoTa(mota.getText().toString());
+//
+//
+//                notifyDataSetChanged();
+//                dialog.dismiss();
+                FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+                firestore.collection("Sanpham").document(list.get(position).getMaSp())
+                        .update("tenSP", tensp.getText().toString(),
+                                "thuonghieu", thuonghieu.getText().toString(),
+                                "kichCo", Long.parseLong(kichco.getText().toString()),
+                                "gia", Long.parseLong(gia.getText().toString()),
+                                "moTa", mota.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    list.get(position).setTenSP(tensp.getText().toString());
+                                    list.get(position).setThuonghieu(thuonghieu.getText().toString());
+                                    list.get(position).setKichCo(Long.parseLong(kichco.getText().toString()));
+                                    list.get(position).setGia(Long.parseLong(gia.getText().toString()));
+                                    list.get(position).setMoTa(mota.getText().toString());
+
+                                    notifyDataSetChanged();
+                                    dialog.dismiss();
+                                } else {
+                                    Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+
+            }
+        });
+
+        huy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

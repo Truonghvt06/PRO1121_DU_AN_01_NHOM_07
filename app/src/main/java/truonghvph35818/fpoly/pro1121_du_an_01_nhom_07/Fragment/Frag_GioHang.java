@@ -273,7 +273,7 @@ public class Frag_GioHang extends Fragment {
                 }
             }
         }
-        tongGia.setText(tong + " đ");
+        tongGia.setText(tong + " VND");
         return tong;
     }
 }
