@@ -32,17 +32,16 @@ public class Frag_DoiMatKhau extends Fragment {
 
 
         ed_mk_cu = view.findViewById(R.id.ed_mkcu_dmk);
-        ed_mk_moi = view.findViewById(R.id.ed_mkmoi_dmk);
+        ed_mk_moi =view.findViewById(R.id.ed_mkmoi_dmk);
         ed_re_mk = view.findViewById(R.id.ed_re_mkmoi_dmk);
         btn_huy = view.findViewById(R.id.btn_huy);
         btn_luu = view.findViewById(R.id.btn_luu);
-
         btn_huy.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                ed_mk_cu.setText("");
-                ed_mk_moi.setText("");
-                ed_re_mk.setText("");
+            public void onClick(View v) {
+                ed_mk_cu.setText( "" );
+                ed_mk_moi.setText( "" );
+                ed_re_mk.setText( "" );
             }
         });
 
