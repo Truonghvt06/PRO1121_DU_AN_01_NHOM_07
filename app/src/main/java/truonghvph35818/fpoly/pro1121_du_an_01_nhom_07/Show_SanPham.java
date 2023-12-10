@@ -25,15 +25,22 @@ import java.util.List;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.Adapter.Adapter_item_tt;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.SanPhamDTO;
 
-public class show_sanpham extends AppCompatActivity {
+public class Show_SanPham extends AppCompatActivity {
     RecyclerView rcv_list;
   Adapter_item_tt itemCuaHang;
     List<SanPhamDTO> list;
     FirebaseFirestore db;
+    TextView tenhang;
+    ImageView close;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_sanpham);
+
+
+
         Intent intent = getIntent();
         String[] a = intent.getStringArrayExtra("list");
 
@@ -42,11 +49,13 @@ public class show_sanpham extends AppCompatActivity {
         }
         list = new ArrayList<>();
         rcv_list = findViewById(R.id.rcv_list_sanPham_more);
-        TextView tenhang = findViewById(R.id.tv_ten_hang_show);
-        ImageView close = findViewById(R.id.iv_close);
-        itemCuaHang = new Adapter_item_tt(show_sanpham.this,list);
+        tenhang = findViewById(R.id.tv_ten_hang_show);
+
+        tenhang.setText(a[1]);
+        close = findViewById(R.id.iv_close);
+        itemCuaHang = new Adapter_item_tt(Show_SanPham.this,list);
         rcv_list.setAdapter(itemCuaHang);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(show_sanpham.this, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(Show_SanPham.this, 2);
         rcv_list.setLayoutManager(gridLayoutManager);
         laydulieu(a[0]);
         close.setOnClickListener(new View.OnClickListener() {

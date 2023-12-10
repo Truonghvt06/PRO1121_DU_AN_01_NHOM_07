@@ -165,7 +165,7 @@ public class Frag_QLSanPham extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    private void them() {
+    public void them() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_themsp, null, false);
         builder.setView(view);
@@ -178,8 +178,6 @@ public class Frag_QLSanPham extends Fragment {
         EditText thuonghieu = view.findViewById(R.id.ed_thuonghieu);
         EditText kichco = view.findViewById(R.id.ed_kichCo);
         EditText gia = view.findViewById(R.id.ed_gia);
-//        RadioButton giay = view.findViewById(R.id.giay);
-//        RadioButton dep = view.findViewById(R.id.dep);
         EditText mota = view.findViewById(R.id.ed_moTa);
         Button huy = view.findViewById(R.id.btn_huy_themsp);
         Button luu = view.findViewById(R.id.btn_luu_themsp);
@@ -269,6 +267,7 @@ dsthuonghieu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 }
 
                 if (value != null) {
+                    hangDTOlist.clear();
                     for (DocumentChange dc : value.getDocumentChanges()) {
                         switch (dc.getType()) {
                             case ADDED:
@@ -293,6 +292,7 @@ dsthuonghieu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 break;
                         }
                     }
+                    adapterThuonghieu.notifyDataSetChanged();
                 }
             }
         });

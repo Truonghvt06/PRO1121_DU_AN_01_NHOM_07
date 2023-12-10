@@ -21,6 +21,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -45,10 +47,13 @@ public class AdminActivity extends AppCompatActivity {
 //    FrameLayout frameLayout;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
+    TextView tv_header;
+    ImageView img_avatar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+
         toolbar = findViewById(R.id.toolbar);
         navView = findViewById(R.id.nav_view);
 //        frameLayout = findViewById(R.id.frame_layout);

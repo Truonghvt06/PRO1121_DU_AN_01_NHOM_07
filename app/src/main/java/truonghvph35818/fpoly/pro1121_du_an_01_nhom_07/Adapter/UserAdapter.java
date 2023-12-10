@@ -54,15 +54,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
         Glide.with(context).load(list.get(position).getAnh()).error(R.drawable.anh_sp).into(holder.img_anh);//ảnh
         holder.tv_Ten.setText( list.get(position).getHoTen());
         holder.tv_Email.setText(list.get(position).getEmail());
-//        holder.tv_TrangThai.setText(user.getNgaySinh());
+        holder.tv_namSinh.setText(user.getNgaySinh());
+        holder.tv_gioiTinh.setText(list.get(position).getGioiTinh());
+        holder.tv_sdt.setText(list.get(position).getSDT());
 
-        if (user.getTrangThai() == 0) {
-            holder.tv_TrangThai.setText("Không hoạt động");
-            holder.tv_TrangThai.setTextColor(Color.RED);
-        } else if (user.getTrangThai() == 1) {
-            holder.tv_TrangThai.setText("Đang hoạt động");
-            holder.tv_TrangThai.setTextColor(Color.BLUE);
-        }
+
+//        if (user.getTrangThai() == 0) {
+//            holder.tv_TrangThai.setText("Không hoạt động");
+//            holder.tv_TrangThai.setTextColor(Color.RED);
+//        } else if (user.getTrangThai() == 1) {
+//            holder.tv_TrangThai.setText("Đang hoạt động");
+//            holder.tv_TrangThai.setTextColor(Color.BLUE);
+//        }
         holder.img_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,38 +100,36 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
 
             }
         });
+        //Trạng thái hoạt động
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setIcon(R.drawable.canh_bao);
-                builder.setTitle("Cánh bảo !");
-                builder.setMessage("Bạn có muốn dừng hoạt động nhân viên " + user.getHoTen() + " không ?");
-                builder.setPositiveButton("Tắt trạng thái", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        changeTT(0,list.get(position));
-                    }
-                });
-                builder.setNegativeButton("Mở trạng thái", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        changeTT(1,list.get(position));
-                    }
-                });
-                builder.create().show();
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                builder.setIcon(R.drawable.canh_bao);
+//                builder.setTitle("Cánh bảo !");
+//                builder.setMessage("Bạn có muốn dừng hoạt động nhân viên " + user.getHoTen() + " không ?");
+//                builder.setPositiveButton("Tắt trạng thái", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        changeTT(0,list.get(position));
+//                    }
+//                });
+//                builder.setNegativeButton("Mở trạng thái", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        changeTT(1,list.get(position));
+//                    }
+//                });
+//                builder.create().show();
+//
+//            }
+//        });
 
-            }
-        });
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-
-                return false;
-            }
-        });
     }
+
+
+
     private void changeTT(int i, User user) {
         user.setTrangThai(i);
         db.collection("User").document(user.getMaUser()).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -148,7 +149,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
     }
 
     public class viewHolder extends RecyclerView.ViewHolder {
-        TextView tv_Ten, tv_Email, tv_TrangThai;
+        TextView tv_Ten, tv_Email, tv_TrangThai, tv_gioiTinh, tv_namSinh, tv_sdt;
         ImageView img_delete, img_anh;
 
 
@@ -156,7 +157,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
             super(itemView);
             tv_Ten = itemView.findViewById(R.id.tv_tenNV);
             tv_Email = itemView.findViewById(R.id.tv_emailNV);
-            tv_TrangThai = itemView.findViewById(R.id.tv_trangThai);
+//            tv_TrangThai = itemView.findViewById(R.id.tv_trangThai);
+            tv_gioiTinh = itemView.findViewById(R.id.tv_gioiTinh_tnv);
+            tv_namSinh = itemView.findViewById(R.id.tv_namSinh_tnv);
+            tv_sdt = itemView.findViewById(R.id.tv_sdt_tnv);
             img_delete = itemView.findViewById(R.id.delete_nv);
             img_anh = itemView.findViewById(R.id.img_anh_nv);
         }

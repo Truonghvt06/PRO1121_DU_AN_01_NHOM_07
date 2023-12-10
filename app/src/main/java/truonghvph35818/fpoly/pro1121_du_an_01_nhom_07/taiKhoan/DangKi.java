@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,7 +41,6 @@ public class DangKi extends AppCompatActivity {
         edDKHoTen = findViewById(R.id.edDKHoTen);
         edDKEmail = findViewById(R.id.edDKEmail);
         edDKSdt = findViewById(R.id.edDKSdt);
-//        edDKTaiKhoan = findViewById(R.id.edDKTaiKhoan);
         edDKMatKhau = findViewById(R.id.edDKMatKhau);
         edDKNhapLaiMK = findViewById(R.id.edDKNhapLaiMK);
         tvDangNhap = findViewById(R.id.tvDangNhap);
@@ -68,37 +68,29 @@ public class DangKi extends AppCompatActivity {
         });
 
     }
-    private void reload() { }
-
-    private void updateUI(FirebaseUser user) {
-
-    }
     private void dangKi(){
         String hoTen = edDKHoTen.getText().toString();
         String sdt = edDKSdt.getText().toString();
         String email = edDKEmail.getText().toString();
         String mk = edDKMatKhau.getText().toString();
-//        String  checkMK = edDKNhapLaiMK.getText().toString();
         if(email.isEmpty() || hoTen.isEmpty() || sdt.isEmpty() || mk.isEmpty()){
-            Toast.makeText(getApplicationContext(),"Vui lòng không bỏ trống!!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Vui lòng không bỏ trống!",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!isValidatePhone(sdt) || sdt.length() < 10 ||sdt.length() >10){
+            Toast.makeText(this, "Số điện thoại gồm 10 chữ số!", Toast.LENGTH_SHORT).show();
+        }
+        if (!isValidateEmail(email)){
+            Toast.makeText(this, "Không đúng định dạng của email!", Toast.LENGTH_SHORT).show();
+        }
+        if (mk.length() < 7 ){
+            Toast.makeText(this, "Mật khẩu phải từ 7 kí tự!", Toast.LENGTH_SHORT).show();
+        }
+        if(!mk.equals(edDKNhapLaiMK.getText().toString())){
+            Toast.makeText(getApplicationContext(),"Mật khẩu không trùng khớp!",Toast.LENGTH_SHORT).show();
             return;
         }
 
-//        if(TextUtils.isEmpty(email)){
-//            Toast.makeText(getApplicationContext(),"Vui lòng nhập email!!",Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//        if(TextUtils.isEmpty(mk)){
-//            Toast.makeText(getApplicationContext(),"Vui lòng nhập mật khẩu!!",Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-        if(!mk.equals(edDKNhapLaiMK.getText().toString())){
-            Toast.makeText(getApplicationContext(),"Mật khẩu không trùng khớp!!",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (mk.length() <= 6 ){{
-            Toast.makeText(this, "Mật khẩu phải dài hơn 6 kí tự", Toast.LENGTH_SHORT).show();
-        }}
         firebaseAuth.createUserWithEmailAndPassword(email,mk).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -117,6 +109,16 @@ public class DangKi extends AppCompatActivity {
             }
         });
     }
+
+
+    public boolean isValidateEmail(CharSequence e) {
+        return !TextUtils.isEmpty(e) && Patterns.EMAIL_ADDRESS.matcher(e).matches();
+    }
+    public boolean isValidatePhone(CharSequence e) {
+        return !TextUtils.isEmpty(e) && Patterns.PHONE.matcher(e).matches();
+    }
+
+
 
     public void TaoUser(){
         user = firebaseAuth.getCurrentUser();

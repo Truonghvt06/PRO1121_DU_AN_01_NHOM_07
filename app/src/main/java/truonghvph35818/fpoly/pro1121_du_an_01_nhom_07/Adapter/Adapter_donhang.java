@@ -51,8 +51,8 @@ public class Adapter_donhang extends RecyclerView.Adapter<Adapter_donhang.ViewHo
         Long soluong = TongGiaSP(position);
         holder.maSP.setText("Mã hàng: " + list_donHang.get(position).getMaDonHang());
 //        holder.tenSP.setText("Tên SP: " + list_donHang.get(position).getT);
-        holder.giaSP.setText("Tổng giá: " + list_donHang.get(position).getGiaDon() + "đ");
-        holder.soLuong.setText("Số lượng: " + soluong + " SP");
+        holder.giaSP.setText("Tổng giá: " + list_donHang.get(position).getGiaDon() + " VND");
+        holder.soLuong.setText("Số lượng: " + soluong);
         holder.ngay.setText("Ngày mua: " + list_donHang.get(position).getNgayMua());
         if (list_donHang.get(position).getTrangThai() == 0) {
             holder.trangthai.setText("Chờ xác nhận");
