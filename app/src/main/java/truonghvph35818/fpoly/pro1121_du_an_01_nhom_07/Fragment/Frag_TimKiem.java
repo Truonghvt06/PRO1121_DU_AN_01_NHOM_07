@@ -68,7 +68,6 @@ public class Frag_TimKiem extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                adapter_timkiem.getFilter().filter(charSequence);
             }
 
             @Override
