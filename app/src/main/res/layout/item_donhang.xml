@@ -99,14 +99,15 @@
                 <TextView
                     android:id="@+id/tv_xoa_giohang"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@drawable/boanh"
-                    android:textColor="@color/black"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
                     android:paddingLeft="15dp"
+                    android:paddingTop="3dp"
                     android:paddingRight="15dp"
-                    android:text="Loại bỏ" />
+                    android:paddingBottom="3dp"
+                    android:text="HỦY"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

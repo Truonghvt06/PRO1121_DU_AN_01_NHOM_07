@@ -347,9 +347,9 @@ dsthuonghieu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isComplete()) {
-                    Toast.makeText(getContext(), "Bạn xóa thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Xóa sản phẩm thành công!", Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(getContext(), "Bạn xóa không thành công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Xóa sản phẩm không thành công!", Toast.LENGTH_SHORT).show();
 
             }
         });

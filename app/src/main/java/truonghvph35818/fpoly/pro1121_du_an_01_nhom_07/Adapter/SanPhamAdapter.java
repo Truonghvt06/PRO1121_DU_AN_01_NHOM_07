@@ -129,15 +129,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
         luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                sanPhamDTO.setTenSP(tensp.getText().toString());
-//                sanPhamDTO.setThuonghieu(thuonghieu.getText().toString());
-//                sanPhamDTO.setKichCo(Long.parseLong(kichco.getText().toString()));
-//                sanPhamDTO.setGia(Long.parseLong(gia.getText().toString()));
-//                sanPhamDTO.setMoTa(mota.getText().toString());
-//
-//
-//                notifyDataSetChanged();
-//                dialog.dismiss();
+
                 FirebaseFirestore firestore = FirebaseFirestore.getInstance();
                 firestore.collection("Sanpham").document(list.get(position).getMaSp())
                         .update("tenSP", tensp.getText().toString(),

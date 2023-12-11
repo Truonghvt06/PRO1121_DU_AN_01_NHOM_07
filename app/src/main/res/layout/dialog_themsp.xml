@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/botron"
             android:padding="10dp"
+            android:maxLines="1"
             android:layout_marginTop="20dp"
             android:hint="Tên sản phẩm"/>
 
@@ -55,6 +56,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/botron"
             android:padding="10dp"
+            android:maxLines="1"
             android:layout_marginTop="10dp"
             android:hint="Kích cỡ "/>
         <EditText
@@ -63,6 +65,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/botron"
             android:padding="10dp"
+            android:maxLines="1"
             android:layout_marginTop="10dp"
             android:hint="Giá"/>
 
@@ -92,6 +95,7 @@
             android:background="@drawable/botron"
             android:padding="10dp"
             android:hint="Mô tả"
+            android:maxLines="1"
             android:layout_marginTop="10dp"/>
 
         <LinearLayout
