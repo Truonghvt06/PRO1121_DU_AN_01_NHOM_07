@@ -15,7 +15,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="hangx"
                 android:textColor="#0C0C0C"
                 android:textStyle="bold"
                 android:id="@+id/tv_tenhang"

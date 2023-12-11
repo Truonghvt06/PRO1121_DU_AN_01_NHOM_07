@@ -185,6 +185,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.viewHolder> {
                 firestore.collection("User").document(list.get(position).getMaUser())
                         .update("hoTen", ed_hoTen.getText().toString(),
                                 "gioiTinh", ed_gioiTinh.getText().toString(),
+                                
                                 "ngaySinh", ed_namSinh.getText().toString(),
                                 "sdt", ed_sdt.getText().toString(),
                                 "email", ed_email.getText().toString())
