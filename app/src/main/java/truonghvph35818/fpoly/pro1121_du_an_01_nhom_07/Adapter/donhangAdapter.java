@@ -22,12 +22,12 @@ import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.Don;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.DTO.DonHang;
 import truonghvph35818.fpoly.pro1121_du_an_01_nhom_07.R;
 
-public class Adapter_donhang extends RecyclerView.Adapter<Adapter_donhang.ViewHolder> {
+public class donhangAdapter extends RecyclerView.Adapter<donhangAdapter.ViewHolder> {
     List<DonHang> list_donHang;
     Context context;
     FirebaseFirestore db;
     int manhinh = 0;
-    public Adapter_donhang(List<DonHang> list_donHang, Context context, int i) {
+    public donhangAdapter(List<DonHang> list_donHang, Context context, int i) {
         this.list_donHang = list_donHang;
         this.context = context;
         db = FirebaseFirestore.getInstance();
@@ -36,8 +36,8 @@ public class Adapter_donhang extends RecyclerView.Adapter<Adapter_donhang.ViewHo
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(((Activity) context).getLayoutInflater().
+    public donhangAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new donhangAdapter.ViewHolder(((Activity) context).getLayoutInflater().
                 inflate(R.layout.item_donhang, parent, false));
     }
 

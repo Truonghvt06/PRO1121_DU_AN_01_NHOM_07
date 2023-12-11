@@ -68,6 +68,7 @@ public class NhanVienActivity extends AppCompatActivity {
 
 
 
+
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/botron"
         android:padding="10dp"
-        android:hint="Năm sinh"
+        android:hint="Ngày sinh"
         android:layout_marginTop="10dp"/>
     <EditText
         android:id="@+id/ed_sdt"
@@ -68,6 +68,7 @@
         android:background="@drawable/botron"
         android:padding="10dp"
         android:hint="Mật khẩu"
+        android:inputType="textPassword"
         android:layout_marginTop="10dp"/>
 
     <LinearLayout

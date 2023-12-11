@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Nhập mật khẩu"
+        android:inputType="textPassword"
         android:background="@drawable/botron"
         android:padding="13dp"/>
     <EditText
@@ -41,6 +42,7 @@
         android:layout_marginTop="10dp"
         android:hint="Nhập lại mật khẩu"
         android:background="@drawable/botron"
+        android:inputType="textPassword"
         android:padding="13dp"/>
 
     <LinearLayout

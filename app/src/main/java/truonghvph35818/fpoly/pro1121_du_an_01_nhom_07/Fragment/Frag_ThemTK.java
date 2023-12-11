@@ -85,6 +85,8 @@ public class Frag_ThemTK extends Fragment {
                     Toast.makeText(getContext(), "Vui lòng nhập đúng định dạng Email!", Toast.LENGTH_SHORT).show();
                 }else if(!re_mk.equals(mk)){
                     Toast.makeText(getContext(), "Mật khẩu không trùng khớp!", Toast.LENGTH_SHORT).show();
+                }else if (mk.length() < 7){
+                    Toast.makeText(getContext(), "Mật khẩu phải từ 7 kí tự!", Toast.LENGTH_SHORT).show();
                 }else {
                     themTK();
                 }

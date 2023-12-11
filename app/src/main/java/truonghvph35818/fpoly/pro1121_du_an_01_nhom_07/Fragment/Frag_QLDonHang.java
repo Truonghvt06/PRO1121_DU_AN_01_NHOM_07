@@ -90,45 +90,7 @@ public class Frag_QLDonHang extends Fragment {
 
     }
 
-    public void getHoaDon() {
 
-        db.collection("donHang").whereEqualTo("trangThai", 0).addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                if (error != null) {
-                    Toast.makeText(getContext(), "Lỗi không có dữ liệu", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (value != null) {
-                    for (DocumentChange dc : value.getDocumentChanges()) {
-                        switch (dc.getType()) {
-                            case ADDED:
-                                dc.getDocument().toObject(DonHang.class);
-                                list_DonHang.add(dc.getDocument().toObject(DonHang.class));
-                                qlDonHangAdapter.notifyDataSetChanged();
-                                break;
-                            case MODIFIED:
-                                DonHang donHang = dc.getDocument().toObject(DonHang.class);
-                                if (dc.getOldIndex() == dc.getNewIndex()) {
-                                    list_DonHang.set(dc.getOldIndex(), donHang);
-                                } else {
-                                    list_DonHang.remove(dc.getOldIndex());
-                                    list_DonHang.add(donHang);
-                                }
-                                qlDonHangAdapter.notifyDataSetChanged();
-                                break;
-                            case REMOVED:
-                                dc.getDocument().toObject(DonHang.class);
-                                list_DonHang.remove(dc.getOldIndex());
-                                qlDonHangAdapter.notifyDataSetChanged();
-                                break;
-                        }
-                    }
-
-                }
-            }
-        });
-    }
 
     public void getKH() {
         db.collection("User").whereEqualTo("chucVu", 3).addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -196,6 +158,45 @@ public class Frag_QLDonHang extends Fragment {
                                 break;
                         }
                     }
+                }
+            }
+        });
+    }
+    public void getHoaDon() {
+
+        db.collection("donHang").whereEqualTo("trangThai", 0).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Toast.makeText(getContext(), "Lỗi không có dữ liệu", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (value != null) {
+                    for (DocumentChange dc : value.getDocumentChanges()) {
+                        switch (dc.getType()) {
+                            case ADDED:
+                                dc.getDocument().toObject(DonHang.class);
+                                list_DonHang.add(dc.getDocument().toObject(DonHang.class));
+                                qlDonHangAdapter.notifyDataSetChanged();
+                                break;
+                            case MODIFIED:
+                                DonHang donHang = dc.getDocument().toObject(DonHang.class);
+                                if (dc.getOldIndex() == dc.getNewIndex()) {
+                                    list_DonHang.set(dc.getOldIndex(), donHang);
+                                } else {
+                                    list_DonHang.remove(dc.getOldIndex());
+                                    list_DonHang.add(donHang);
+                                }
+                                qlDonHangAdapter.notifyDataSetChanged();
+                                break;
+                            case REMOVED:
+                                dc.getDocument().toObject(DonHang.class);
+                                list_DonHang.remove(dc.getOldIndex());
+                                qlDonHangAdapter.notifyDataSetChanged();
+                                break;
+                        }
+                    }
+
                 }
             }
         });
